@@ -899,7 +899,3 @@ span.umnHathiTrustLink md-icon svg {
 span.umnHathiTrustLink:hover md-icon svg {
   filter: grayscale(0%);
 }
-
-#banner a.organization-logo {
-  height: 60px;
-}
