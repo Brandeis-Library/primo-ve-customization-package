@@ -899,3 +899,17 @@ span.umnHathiTrustLink md-icon svg {
 span.umnHathiTrustLink:hover md-icon svg {
   filter: grayscale(0%);
 }
+
+
+.section-content .md-chips .md-chip .facet-title {
+  color: #003478;
+}
+
+h2.sidebar-title {
+   font-weight: 510;
+   font-size: 17pt;
+}
+
+.full-view-section .section-title {
+  font-weight: 500;
+}
