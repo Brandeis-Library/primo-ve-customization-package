@@ -2,6 +2,9 @@
 var checkAskLibrarianLimit = 5;
 var currentAskLibrarianAttempts = 0;
 
+// Zip on mac command line
+// zip -r 01BRAND_INST-BRAND.zip 01BRAND_INST-BRAND  -x "*.DS_Store"
+
 //Update Ask a Librarian to Chat with a Librarian if someone is staffing LibChat
 //Called after Ask a Librarian script is loaded
 function updateAskLibrarianText() {
