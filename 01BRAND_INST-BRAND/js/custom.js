@@ -76,12 +76,7 @@
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultAvailabilityLineAfterController',
     template:
-      '\n    <hathi-trust-availability-studio parent-ctrl="$ctrl.parentCtrl"></hathi-trust-availability-studio>\n',
-  });
-
-  app.component('prmSearchResultAvailabilityLineAfter', {
-    template:
-      '<hathi-trust-availability hide-online="true" ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth"></hathi-trust-availability>',
+      '\n    <hathi-trust-availability-studio hide-online="true" ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth"></hathi-trust-availability-studio>\n',
   });
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
