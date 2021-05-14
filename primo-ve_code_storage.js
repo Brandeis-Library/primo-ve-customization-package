@@ -9,7 +9,7 @@
 
   ('use strict');
   ('use strict');
-  var nonhathiTrustMember = false;
+
   ('use strict');
   ('use strict');
 
@@ -74,8 +74,9 @@
 
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
+    controller: 'SearchResultAvailabilityLineAfterController',
     template:
-      '<hathi-trust-availability-studio  ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" parent-ctrl="$ctrl.parentCtrl">',
+      '\n    <hathi-trust-availability-studio hide-online="true" ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth"></hathi-trust-availability-studio>\n',
   });
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
@@ -209,36 +210,4 @@
   app.requires.push('hathiTrustAvailability');
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
-})();
-
-/* STACKMAP integration */
-
-(function () {
-  var script = document.createElement('script');
-  script.id = 'StackMapScript';
-  /* AGRS made a local copy of the stackmap script at
-https://stackmap.com/integration/brandeis-primo2/StackMap.js
-so i could make changes that would make the page more accessible.
-Those changes were to remove an h2 heading for accessibility purposes
-and add aria-labels to the print and close buttons. */
-  /* Undoing above change so updates Stack Maps have made can get added to the
- script without having to copy it over again. Stack Maps is also aware of the
- above and will be adding them to their script - Rich */
-  script.src = 'https://stackmap.com/integration/brandeis-primo2/StackMap.js';
-  document.head.appendChild(script);
-
-  var link = document.createElement('link');
-  link.id = 'StackMapSheet';
-  link.rel = 'stylesheet';
-  link.media = 'all';
-  link.type = 'text/css';
-  link.href = 'https://stackmap.com/integration/brandeis-primo2/StackMap.css';
-  document.head.appendChild(link);
-
-  var smlink2 = document.createElement('link');
-  smlink2.rel = 'stylesheet';
-  smlink2.type = 'text/css';
-  smlink2.href =
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
-  document.body.appendChild(smlink2);
 })();
