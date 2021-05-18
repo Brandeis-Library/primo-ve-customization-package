@@ -75,7 +75,7 @@
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     template:
-      '<hathi-trust-availability-studio  ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" parent-ctrl="$ctrl.parentCtrl">',
+      '<hathi-trust-availability-studio  ignore-copyright="true" hide-online="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" >',
   });
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
