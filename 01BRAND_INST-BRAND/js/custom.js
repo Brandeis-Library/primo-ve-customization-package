@@ -75,7 +75,7 @@
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     template:
-      '<hathi-trust-availability-studio  ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" parent-ctrl="$ctrl.parentCtrl">',
+      '<hathi-trust-availability-studio  ignore-copyright="true" hide-online="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" >',
   });
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
@@ -115,7 +115,7 @@
               var result = data[ids[i]];
               for (var j = 0; j < result.items.length; j++) {
                 var item = result.items[j];
-                if (item.usRightsString) {
+                if (item.usRightsString.toLowerCase() === 'full view') {
                   fullTextUrl = result.records[item.fromRecord].recordURL;
                   break;
                 }

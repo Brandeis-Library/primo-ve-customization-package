@@ -76,7 +76,7 @@
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultAvailabilityLineAfterController',
     template:
-      '\n    <hathi-trust-availability-studio hide-online="true" ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth"></hathi-trust-availability-studio>\n',
+      '\n    <hathi-trust-availability-studio  ignore-copyright="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth"></hathi-trust-availability-studio>\n',
   });
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
