@@ -45,42 +45,28 @@
           }
         });
     });
-
-    //for continued checking
-    setInterval(function () {
-      let status = undefined;
-
-      fetch('https://answers.library.brandeis.edu/1.0/chat/widgets/status/9616')
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          status = data.online;
-
-          if (status === true) {
-            document.getElementById('lcs_slide_out_button-9616').innerText =
-              'Chat with a Librarian';
-          } else {
-            document.getElementById('lcs_slide_out_button-9616').innerText =
-              'Ask a Librarian';
-          }
-        });
-    }, 60000);
   })();
+
+  //for continued checking
+  setInterval(function () {
+    let status = undefined;
+    fetch('https://answers.library.brandeis.edu/1.0/chat/widgets/status/9616')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        status = data.online;
+
+        if (status === true) {
+          document.getElementById('lcs_slide_out_button-9616').innerText =
+            'Chat with a Librarian';
+        } else {
+          document.getElementById('lcs_slide_out_button-9616').innerText =
+            'Ask a Librarian';
+        }
+      });
+  }, 60000);
   /*---------------libchat code ends here---------------*/
-
-  // LibAnswers System Status widget
-
-  (function (s, o, g, a, m) {
-    (a = s.createElement(o)), (m = s.head);
-    a.async = 1;
-    a.src = g;
-    m.appendChild(a);
-    a.onload = function () {
-      var x = document.getElementById('s-la-widget-st-1305');
-      x && x.firstElementChild.removeAttribute('href');
-    };
-  })(document, 'script', 'https://api2.libanswers.com/1.0/status/widgets/1305');
 
   /*----------twitter starts here-----------*/
   // Adds the chat button
