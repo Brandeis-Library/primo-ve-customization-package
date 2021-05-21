@@ -124,7 +124,7 @@
               var result = data[ids[i]];
               for (var j = 0; j < result.items.length; j++) {
                 var item = result.items[j];
-                if (item.usRightsString.toLowerCase() === 'full view') {
+                if (item.usRightsString) {
                   fullTextUrl = result.records[item.fromRecord].recordURL;
                   break;
                 }
