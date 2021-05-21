@@ -78,6 +78,15 @@
       '<hathi-trust-availability-studio  ignore-copyright="true" hide-online="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" >',
   });
 
+   app.component('prmGalleryItemsListAfter', {
+        controller: 'prmCollectionDiscoveryCtrl'
+    });
+
+     app.controller('prmCollectionDiscoveryCtrl', [function () {
+        console.log("collection discovery called!");
+        addFindingAidLink();
+    }]);
+
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
 
   //Auto generated code by primo app store DO NOT DELETE!!! -START-
@@ -242,3 +251,16 @@ and add aria-labels to the print and close buttons. */
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
   document.body.appendChild(smlink2);
 })();
+
+function addFindingAidLink(){
+    console.log("add finding aid link!");
+    var collectionInfo = document.querySelector('div.collection-info p');
+    if (collectionInfo.innerText.search('http://') !== -1){
+        var oldLinkText  = collectionInfo.innerText.substring(collectionInfo.innerText.search('http://'));
+        var newLinkHTML = '<a id="findingAidLink" style="color: white; text-decoration: underline;" href="' + oldLinkText + '">' + 'Finding aid link' + '</a>';
+        //console.log("newLinkHTML");
+        //console.log(newLinkHTML);
+        collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Finding aid link:', '');
+        collectionInfo.innerHTML = collectionInfo.innerHTML.replace(oldLinkText, newLinkHTML);
+    }
+}
