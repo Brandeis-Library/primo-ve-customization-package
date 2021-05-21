@@ -912,3 +912,7 @@ h2.sidebar-title {
 .full-view-section .section-title {
   font-weight: 500;
 }
+
+span.md-headline {
+  font-weight: 510;
+}
