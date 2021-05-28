@@ -100,6 +100,15 @@
     },
   ]);
 
+
+ app.component('prmExploreFooterAfter', {
+
+             bindings: { parentCtrl: '<' },
+
+             template: '<div id="footerWrapper"><md-content layout=row layout-xs=column><div flex=33 layout=column><md-card class=default-card><md-card-title><md-card-title-text><h2><span class=md-headline>Find More</span></h2></md-card-title-text></md-card-title><md-card-content><a href=http://lts.brandeis.edu/research/archives-speccoll/ >University Archives and Special Collections</a><br><a href=https://scholarworks.brandeis.edu>Brandeis ScholarWorks</a><br><a href=http://brandeis.on.worldcat.org/ >WorldCat (Search Libraries Worldwide)</a><br><a href=http://www.brandeis.edu/library/research/books-articles/database-trials.html>Database Trials</a><br></md-card-content></md-card></div><div flex=33 layout=column flex-xs><md-card class=default-card><md-card-title><md-card-title-text><h2><span class=md-headline>Library Services</span></h2></md-card-title-text></md-card-title><md-card-content><a href=https://www.brandeis.edu/library/about/hours/index.html>Library Hours</a><br><a href=https://www.brandeis.edu/library/borrowing/index.html>Borrowing</a><br><a href=https://www.brandeis.edu/library/borrowing/document-delivery.html target=_blank>Scan on Demand (formerly Document Delivery)</a><br></md-card-content></md-card></div><div flex=33 layout=column flex-xs><md-card class=default-card><md-card-title><md-card-title-text><h2><span class=md-headline>Get Help</span></h2></md-card-title-text></md-card-title><md-card-content><a href=https://guides.library.brandeis.edu/eresources>E-Resource Help</a><br><a href=https://www.brandeis.edu/library/research/help/index.html>Research Help</a><br><a href=https://guides.library.brandeis.edu/more_guides/citing_sources>Citing Sources</a><br><a href=https://guides.library.brandeis.edu/ >Research Guides</a><br></md-card-content></div></md-content></div>'
+
+    });
+    
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     template:
@@ -307,3 +316,32 @@ function addFindingAidLink() {
     );
   }
 }
+
+// Instantiate variables that will be reset repeatedly in the listener function
+var max = 0;
+var winHeight = 0;
+var scrollTop = 0;
+var foot = 0;
+// and let's have a small buffer before the footerWrapper
+var buffer = 50;
+
+window.addEventListener('scroll', function(e) {
+  // Total length of document
+  max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
+                     document.body.offsetHeight, document.documentElement.offsetHeight,
+                     document.body.clientHeight, document.documentElement.clientHeight);
+  // Height of window
+  winHeight = window.innerHeight || (document.documentElement || document.body).clientHeight
+  // Point of the top of the document visible on screen
+  scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  // Height of footer
+  foot = Math.round(parseFloat(window.getComputedStyle(document.getElementById('footerWrapper')).height));
+  // check where we are in terms of scrolling and the footer
+  if (document.querySelectorAll('.primo-scrollbar.is-stuck')[0]) {
+    if (scrollTop + winHeight >= max - foot) {
+      document.querySelectorAll('.primo-scrollbar.is-stuck')[0].style.maxHeight = 'calc(100% - ' + Math.abs(max - winHeight - scrollTop - foot - buffer)  + 'px)'
+    } else {
+      document.querySelectorAll('.primo-scrollbar.is-stuck')[0].style.maxHeight = 'calc(100% - 2em)'
+    }
+  }
+});
