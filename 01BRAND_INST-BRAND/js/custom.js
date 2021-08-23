@@ -295,30 +295,25 @@ and add aria-labels to the print and close buttons. */
   document.body.appendChild(smlink2);
 })();
 
-function addFindingAidLink() {
-  console.log('add finding aid link!');
+function addFindingAidLink(){
+  console.log("add finding aid link!");
   var collectionInfo = document.querySelector('div.collection-info p');
-  if (collectionInfo.innerText.search('http://') !== -1) {
-    var oldLinkText = collectionInfo.innerText.substring(
-      collectionInfo.innerText.search('http://')
-    );
-    var newLinkHTML =
-      '<a id="findingAidLink" style="color: white; text-decoration: underline;" href="' +
-      oldLinkText +
-      '">' +
-      'Finding aid link' +
-      '</a>';
-    //console.log("newLinkHTML");
-    //console.log(newLinkHTML);
-    collectionInfo.innerHTML = collectionInfo.innerHTML.replace(
-      'Finding aid link:',
-      ''
-    );
-    collectionInfo.innerHTML = collectionInfo.innerHTML.replace(
-      oldLinkText,
-      newLinkHTML
-    );
+  if (collectionInfo.innerText.search('http://') !== -1){
+      var oldLinkText  = collectionInfo.innerText.substring(collectionInfo.innerText.search('http://'));
+      var newLinkHTML = '<a id="findingAidLink" href="' + oldLinkText + '">' + 'Finding aid link' + '</a>';
+      //console.log("newLinkHTML");
+      //console.log(newLinkHTML);
+      collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Finding aid link:', '');
+      collectionInfo.innerHTML = collectionInfo.innerHTML.replace(oldLinkText, newLinkHTML);
   }
+  if (document.location.search.indexOf('81449890850001921') !== -1){
+    collectionInfo.innerHTML = collectionInfo.innerHTML.replace('ScholarWorks', '<a id="findingAidLink" href="https://scholarworks.brandeis.edu">ScholarWorks</a>');
+  }
+  //Robert D. Farber University Archives and Special Collections
+  if (document.location.search.indexOf('81430927000001921') !== -1){
+    collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Robert D. Farber University Archives and Special Collections', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/index.html">Robert D. Farber University Archives and Special Collections</a>');
+  }
+
 }
 
 // Instantiate variables that will be reset repeatedly in the listener function
