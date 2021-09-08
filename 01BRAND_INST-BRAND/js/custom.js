@@ -130,6 +130,17 @@
       '<div style="background-color: yellow; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">Your saved searches that were created prior to June 6th are no longer available as a result of our migration to the latest version of OneSearch. If you would like assistance recreating your saved searches, please contact <a href="mailto:librarysystems@brandeis.edu">library systems</a>.</div>',
   });
 
+  app.component('prmBlankIllAfter', {
+    controller: 'prmBlankIllAfterCtrl',
+  });
+
+   app.controller('prmBlankIllAfterCtrl', [
+    function () {
+      blankILLAfter();
+    },
+  ]);
+
+
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
 
   //Auto generated code by primo app store DO NOT DELETE!!! -START-
@@ -365,3 +376,15 @@ window.addEventListener('scroll', function (e) {
     }
   }
 });
+
+function blankILLAfter(){
+  
+  if (document.querySelector('form h3') !== null){
+    var currentHTML = document.querySelector('form h3').outerHTML;
+    var newHTML = currentHTML + '</h3><div id="illFormMessage" style="background-color: yellow; border-radius: 10px; width: 100%; font-size: 75%; padding: 10px; border-radius: 5px; margin-bottom: 15px;"><ul><li>For more information on placing requests, go to the <a href="https://www.brandeis.edu/library/borrowing/ill/faq.html">Interlibrary Loan & Scan on Demand FAQ.</a></li><li>Check the status of your request in your <a href="https://search.library.brandeis.edu/discovery/account?vid=01BRAND_INST:BRAND&section=requests&lang=en">OneSearch Account.</a></li><li>Use the "Notes" field to add any extra details that may help us identify or locate your item.</li><li>Email <a href="mailto:ill@brandeis.edu">ill@brandeis.edu</a> with any questions.</li></ul><p><span style="font-weight: 400">Note:</span>  For Course Reserve requests, please use the <a href="https://www.brandeis.edu/library/teaching/reserves/index.html">Course Reserve Request form.</a></p></div>';
+    document.querySelector('form h3').innerHTML = newHTML;
+  }
+  else {
+    setTimeout(blankILLAfter, 500);
+  }
+}
