@@ -925,3 +925,14 @@ span.md-headline {
 #illFormMessage a {
   color: #41759F;
 }
+
+prm-explore-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+} 
+
+
+prm-explore-footer ul li {
+  list-style-type: none;
+} 
