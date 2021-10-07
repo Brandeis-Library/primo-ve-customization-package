@@ -936,3 +936,7 @@ prm-explore-footer ul {
 prm-explore-footer ul li {
   list-style-type: none;
 } 
+
+prm-ngrs-results-button p {
+  text-align:center;
+}
