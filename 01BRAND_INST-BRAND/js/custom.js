@@ -126,8 +126,7 @@
 
   //Library banner alert message!!
   app.component('prmBackToLibrarySearchButtonAfter', {
-    template:
-      '<div style="background-color: yellow; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">Your saved searches that were created prior to June 6th are no longer available as a result of our migration to the latest version of OneSearch. If you would like assistance recreating your saved searches, please contact <a href="mailto:librarysystems@brandeis.edu">library systems</a>.</div>',
+    template: '',
   });
 
   app.component('prmBlankIllAfter', {
@@ -277,33 +276,26 @@
 /* STACKMAP integration */
 
 (function () {
-  var script = document.createElement('script');
-  script.id = 'StackMapScript';
-  /* AGRS made a local copy of the stackmap script at
-https://stackmap.com/integration/brandeis-primo2/StackMap.js
-so i could make changes that would make the page more accessible.
-Those changes were to remove an h2 heading for accessibility purposes
-and add aria-labels to the print and close buttons. */
-  /* Undoing above change so updates Stack Maps have made can get added to the
- script without having to copy it over again. Stack Maps is also aware of the
- above and will be adding them to their script - Rich */
-  script.src = 'https://stackmap.com/integration/brandeis-primo2/StackMap.js';
-  document.head.appendChild(script);
+ 
+  var a = document.querySelector("head");
+  var css1 = document.createElement("link");
+  css1.type = "text/css";
+  css1.rel = "Stylesheet";
+  css1.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+  css1.crossorigin = "anonymous";
+  a.appendChild(css1);
 
-  var link = document.createElement('link');
-  link.id = 'StackMapSheet';
-  link.rel = 'stylesheet';
-  link.media = 'all';
-  link.type = 'text/css';
-  link.href = 'https://stackmap.com/integration/brandeis-primo2/StackMap.css';
-  document.head.appendChild(link);
+  var css2 = document.createElement("link");
+  css2.type = "text/css";
+  css2.rel = "Stylesheet";
+  css2.href = "https://www.stackmapintegration.com/brandeis-primo2/StackMap.min.css";
+  a.appendChild(css2);
 
-  var smlink2 = document.createElement('link');
-  smlink2.rel = 'stylesheet';
-  smlink2.type = 'text/css';
-  smlink2.href =
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
-  document.body.appendChild(smlink2);
+  var w = document.createElement("script");
+  w.type = "text/javascript"; w.async = true;
+  w.src = "https://www.stackmapintegration.com/brandeis-primo2/StackMap.min.js";
+  var b = document.body;
+  b.appendChild(w);
 })();
 
 function addFindingAidLink(){
