@@ -110,7 +110,10 @@
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     template:
-      '<hathi-trust-availability  ignore-copyright="true" hide-online="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" >',
+
+    
+    '<hathi-trust-availability  ignore-copyright="true" hide-online="true" entity-id="https://shibboleth.brandeis.edu/idp/shibboleth" >',
+
   });
 
   app.component('prmGalleryItemsListAfter', {
