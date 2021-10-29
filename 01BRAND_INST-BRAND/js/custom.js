@@ -139,6 +139,18 @@
     },
   ]);
 
+ 
+
+ app.component('prmAlmaViewitItemsAfter', {
+    controller: 'prmAlmaViewitItemsAfterCtrl',
+  });
+
+   app.controller('prmAlmaViewitItemsAfterCtrl', [
+    function () {
+      updateProxyLinks();
+    },
+  ]);
+
 
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
 
@@ -378,5 +390,35 @@ function blankILLAfter(){
   }
   else {
     setTimeout(blankILLAfter, 500);
+  }
+}
+
+function updateProxyLinks(){
+  console.log("updateProxyLinks called!")
+  var fullTextLinks = document.querySelectorAll('#getit_link1_0 div h3[ng-if="item.packageName"] a')
+  console.log("fullTextLinks.length is " + fullTextLinks.length);
+  if (fullTextLinks.length == 0){
+    setTimeout(updateProxyLinks, 1000);
+  }
+  else {
+    for (i = 0; i < fullTextLinks.length; i++){
+      var fullTextLink = fullTextLinks[i];
+     
+      console.log('fullTextLink.innerText! is ' + fullTextLink.innerText);
+      if (fullTextLink.innerText == 'Access content in DRAM'){
+         //var newFullTextLink = fullTextLink.cloneNode(true);
+         newFullTextLink = document.createElement("a");
+         newFullTextLink.classList.add("item-title");
+         newFullTextLink.classList.add("md-primoExplore-theme")
+         newFullTextLink.innerText = "Access content in DRAM";
+         var parentNode = fullTextLink.parentNode
+
+         newFullTextLink.setAttribute('href', 'https://go.openathens.net/redirector/brandeis.edu?url=' + fullTextLink.getAttribute('href'))
+         newFullTextLink.setAttribute('ng-href', 'https://go.openathens.net/redirector/brandeis.edu?url=' + fullTextLink.getAttribute('ng-href'))
+         newFullTextLink.setAttribute('ng-click', '$event.preventDefault()'); 
+         newFullTextLink.setAttribute('target', '_blank');
+        parentNode.replaceChild(newFullTextLink, fullTextLink);
+      }
+    }
   }
 }
