@@ -142,6 +142,21 @@
   ]);
 
 
+   app.controller('prmBlankIllAfterCtrl', [
+    function () {
+      blankILLAfter();
+    },
+  ]);
+
+  app.component('prmAdvancedSearchAfter', {
+    controller: 'prmAdvancedSearchAfterCtrl',
+    template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;">Just want to browse? Enter a ? into the search box and then select a language, material type, or publication year from the dropdown menus./p>'
+  });
+
+
+
+
+
   //Auto generated code by primo app store DO NOT DELETE!!! -END-
 
   //Auto generated code by primo app store DO NOT DELETE!!! -START-
