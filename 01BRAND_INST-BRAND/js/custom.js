@@ -150,7 +150,7 @@
 
   app.component('prmAdvancedSearchAfter', {
     controller: 'prmAdvancedSearchAfterCtrl',
-    template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;">Just want to browse? Enter a ? into the search box and then select a language, material type, or publication year from the dropdown menus./p>'
+    template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;"><strong>Just want to browse?</strong> Enter a ? into the search box and then select a language, material type, or publication year from the dropdown menus.</p>'
   });
 
 
