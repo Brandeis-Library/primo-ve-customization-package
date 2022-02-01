@@ -131,6 +131,12 @@
     template: '',
   });
 
+  
+
+  app.component('prmBlankIllAfter', {
+    controller: 'prmBlankIllAfterCtrl',
+  });
+
   app.component('prmTabsAndScopesSelectorAfter',{	
     bindings: {parentCtrl: '<'},	
     controller: function($scope){	
@@ -141,18 +147,20 @@
           }, 500)	
         }	
         var searchScopes = document.querySelectorAll('div.simple-search-wrapper [id^="select_option_"]');	
-        for (let i = 0; i < 6; i++) {	
+        for (let i = 0; i < searchScopes.length; i++) {	
           searchScopes[i].onclick = function(){	
             activateSearch();	
           };	
         }	
+      var subScopes = document.querySelectorAll('div.simple-search-wrapper #select_value_label_16 span[role="button"]');
+      for (let i = 0; i < subScopes.length; i++) {	
+          subScopes[i].onclick = function(){	
+            activateSearch();	
+          };	
+        }	
+
       }, 500)	
     }	
-  });
-
-
-  app.component('prmBlankIllAfter', {
-    controller: 'prmBlankIllAfterCtrl',
   });
 
    app.controller('prmBlankIllAfterCtrl', [
