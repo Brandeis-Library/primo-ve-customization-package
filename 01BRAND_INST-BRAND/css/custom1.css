@@ -953,3 +953,7 @@ h4[translate="nui.getit.service_howtogetit"] {
 .my-refworks-separator-ctm {
   display: none;
 }
+
+prm-blank_ill md-radio-button[value="PHYSICAL_NON_RETURNABLE"]{
+  display: none;
+}
