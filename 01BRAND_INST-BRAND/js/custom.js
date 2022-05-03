@@ -144,6 +144,14 @@
     controller: 'prmBlankIllAfterCtrl',
   });
 
+  app.component('prmLoanAfter', {
+    controller: 'prmLoanAfterController',
+  });
+
+  app.component('prmRequestsAfter', {
+    controller: 'prmRequestsAfterController',
+  });
+
   app.component('prmTabsAndScopesSelectorAfter',{	
     bindings: {parentCtrl: '<'},	
     controller: function($scope){	
@@ -173,6 +181,31 @@
    app.controller('prmBlankIllAfterCtrl', [
     function () {
       blankILLAfter();
+    },
+  ]);
+
+  app.controller('prmLoanAfterController', ['angularLoad', '$scope',
+    function (angularLoad, $scope) {
+
+      var item = $scope.$parent.$ctrl.item;
+      item.callnumber = "";
+      item.mainlocationname = "Main Library"
+      item.secondarylocationname = "";
+      //console.log(item);
+      
+      this.$doCheck = function(){  
+        //console.log("start!");
+        var item = $scope.$parent.$ctrl.item;
+        //console.log(item);
+        
+      }
+    },
+  ]);
+
+ app.controller('prmRequestsAfterController', ['angularLoad', '$scope',
+    function (angularLoad, $scope) {
+      //var $ctrl = $scope.$parent.$ctrl
+     // console.log($ctrl);
     },
   ]);
 
