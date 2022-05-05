@@ -993,10 +993,19 @@ span[translate="nui.ngrs.request.date.pickup"] {
   display: none;
 }
 
-
-p.request-location.dateContent {
- display: none;
+span[translate="nui.ngrs.request.date.due_date"] {
+  display: none;
 }
+
+prm-account p.request-location {
+ display: none; 
+}
+
+prm-account p.request-location.pickup-until {
+  display: block;
+}
+
+
 
 
 
@@ -1007,4 +1016,31 @@ p[ng-if^="::requestDisplay.maxNumOfViews"] {
 
 prm-blank_ill md-radio-button[value="PHYSICAL_NON_RETURNABLE"]{
   display: none;
+}
+
+/*Changes for blank ILL form*/
+prm-blank_ill prm-request prm-form-field md-input-container label:not(.md-no-float):not(._md-container-ignore) {
+  max-width: 400px; 
+  width: auto;
+}
+
+prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+   overflow: visible;
+   text-overflow: unset;
+   white-space: normal;
+}
+
+@media (max-width: 600px){
+
+  prm-blank_ill prm-request prm-form-field md-input-container label:not(.md-no-float):not(._md-container-ignore) {
+     max-width: 300px; 
+     width: auto;
+  }
+
+  prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+  }
+  
 }
