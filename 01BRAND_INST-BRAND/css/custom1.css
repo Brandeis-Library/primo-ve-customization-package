@@ -997,7 +997,7 @@ span[translate="nui.ngrs.request.date.due_date"] {
   display: none;
 }
 
-prm-account p.request-location {
+prm-account p.request-location.dateContent {
  display: none; 
 }
 
