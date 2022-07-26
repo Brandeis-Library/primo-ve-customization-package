@@ -133,6 +133,14 @@
     },
   ]);
 
+  app.component('prmSearchBarAfter', {
+  controller: function($scope) {
+    this.$onInit = function() {
+        $scope.$parent.$ctrl.showTabsAndScopes = true;
+    }
+  }
+});
+
   //Library banner alert message!!
   app.component('prmBackToLibrarySearchButtonAfter', {
     template: '',
