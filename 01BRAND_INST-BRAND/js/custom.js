@@ -235,6 +235,11 @@
     template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;"><strong>Just want to browse?</strong> Enter a ? into the search box and then select a language, material type, or publication year from the dropdown menus.</p>'
   });
 
+
+   app.component('prmAtozSearchBarAfter', {
+    template: '<div id="backToCatalog" style=""><prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="back-to-search"></prm-icon><a href="/">Back to Catalog</a></div>'
+  });
+
   //Values for external search  
 app.value('searchTargets', [{
     "name": "Worldcat",

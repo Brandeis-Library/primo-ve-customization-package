@@ -1049,3 +1049,34 @@ prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.
 prm-journals prm-resource-recommender {
   display: none;
 }
+
+#backToCatalog {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  font-size: 14pt;
+  max-width: 150px;
+  border-radius: 20px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  top: -73px;
+  
+}
+
+@media(max-width: 1280px){
+  #backToCatalog {
+    float: right;
+    right: 50px;
+  }
+}
+
+
+@media(max-width: 970px){
+  #backToCatalog {
+    display: none;
+  }
+}
