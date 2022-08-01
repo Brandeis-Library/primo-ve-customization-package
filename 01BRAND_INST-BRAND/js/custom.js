@@ -244,7 +244,7 @@
 app.value('searchTargets', [{
     "name": "Worldcat",
     "url": "https://brandeis.on.worldcat.org/search?",
-    "img": "https://raw.githubusercontent.com/alliance-pcsg/primo-explore-external-search/master/worldcat-logo.png",
+    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/worldcat-logo.png",
     "alt": "Worldcat Logo",
     mapping: function (queries, filters) {
       const query_mappings = {
@@ -287,7 +287,7 @@ app.value('searchTargets', [{
                             {
     "name": "ArchiveGrid",
     "url": "https://researchworks.oclc.org/archivegrid/?q=",
-    "img": "https://researchworks.oclc.org//archivegrid/assets/img/archivegrid_logo_home.png",
+    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/archivegrid_logo_home.png",
     "alt": "ArchiveGrid Logo",
     mapping: function (queries, filters) {
       try {
