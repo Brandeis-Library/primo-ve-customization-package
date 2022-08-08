@@ -284,11 +284,25 @@ app.value('searchTargets', [{
       }
     }
   },
-                            {
+ {
     "name": "ArchiveGrid",
     "url": "https://researchworks.oclc.org/archivegrid/?q=",
     "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/archivegrid_logo_home.png",
     "alt": "ArchiveGrid Logo",
+    mapping: function (queries, filters) {
+      try {
+        return queries.map(part => part.split(",")[2] || "").join(' ')
+      }
+      catch (e) {
+        return ''
+      }
+    }
+  },
+                             {
+    "name": "Internet Archive",
+    "url": "https://archive.org/search.php?query=",
+    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/internet-archive-icon-filled.png",
+    "alt": "Internet Archive Logo",
     mapping: function (queries, filters) {
       try {
         return queries.map(part => part.split(",")[2] || "").join(' ')
