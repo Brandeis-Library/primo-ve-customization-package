@@ -285,6 +285,22 @@ app.value('searchTargets', [{
     }
   },
  {
+    "name": "HathiTrust",
+    "url": "https://babel.hathitrust.org/cgi/ls?q1=",
+    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/HathiTrustIcon.png",
+    "alt": "HathiTrust Logo",
+    mapping: function (queries, filters) {
+      try {
+        var initialQuery = queries.map(part => part.split(",")[2] || "").join(' ') 
+        var restOfQuery = "&field1=ocr&a=srchls&ft=ft&lmt=ft"
+        return initialQuery + restOfQuery;
+      }
+      catch (e) {
+        return ''
+      }
+    }
+  },
+ {
     "name": "ArchiveGrid",
     "url": "https://researchworks.oclc.org/archivegrid/?q=",
     "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/archivegrid_logo_home.png",
@@ -297,7 +313,7 @@ app.value('searchTargets', [{
         return ''
       }
     }
-  },
+  },                            
                              {
     "name": "Internet Archive",
     "url": "https://archive.org/search.php?query=",
