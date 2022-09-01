@@ -309,7 +309,7 @@ app.value('searchTargets', [{
   {
     "name": "HathiTrust",
     "url": "https://babel.hathitrust.org/cgi/ls?q1=",
-    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/HathiTrustIcon.png",
+    "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/HathiTrustIcon.PNG",
     "alt": "HathiTrust Logo",
     mapping: function (queries, filters) {
       try {
