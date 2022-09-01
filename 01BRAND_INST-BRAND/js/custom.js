@@ -634,7 +634,7 @@ angular
 angular
   .module('badgesModal', [])
   .component('badgesModal', {
-    template: '<md-button class="badgesButton" ng-if="$ctrl.inBadges" ng-keypress="$ctrl.showBadgeInfo($event, $ctrl.view_code, $ctrl.infoFile)" ng-click="$ctrl.showBadgeInfo($event, $ctrl.view_code, $ctrl.infoFile)" class="badgeButton" aria-label="{{$ctrl.ariaLabel}}"><md-tooltip>{{$ctrl.badgeTooltip}}</md-tooltip><md-icon md-svg-icon="{{$ctrl.infoIcon}}"></md-icon></md-button>',
+    template: '<button class="badgesButton" ng-if="$ctrl.inBadges" ng-keypress="$ctrl.showBadgeInfo($event, $ctrl.view_code, $ctrl.infoFile)" ng-click="$ctrl.showBadgeInfo($event, $ctrl.view_code, $ctrl.infoFile)" class="badgeButton" aria-label="{{$ctrl.ariaLabel}}"><md-tooltip>{{$ctrl.badgeTooltip}}</md-tooltip><md-icon md-svg-icon="{{$ctrl.infoIcon}}"></md-icon></md-button>',
     controller: function ($scope, $mdDialog, $location, badgeOptions) {
       
       // Badge types
@@ -688,13 +688,13 @@ angular
     info_icon: 'primo-ui:help-circle-outline',
     peer_review: {
       show_icon: true,
-      tooltip: 'What is peer review?  (If you\'re using the keyboard to navigate instead of a mouse and you\'re not using a screen reader, you can open this with the letter O.)',
-      aria_label: "What is peer review? )"
+      tooltip: '',
+      aria_label: "What is peer review? "
     },
     open_access: {
       show_icon: true,
-      tooltip: 'What is peer review?  (Press the letter O to open with a keyboard.)',
-      aria_label: "What is peer review?  (Press the letter O to open with a keyboard.)"
+      tooltip: '',
+      aria_label: "What is peer review? "
     }
   });
   

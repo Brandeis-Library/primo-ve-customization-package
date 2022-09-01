@@ -1084,3 +1084,7 @@ button.badgesButton {
   background-color: inherit;
   border: none;
 }
+
+md-virtual-repeat-container prm-icon-after {
+  display: none;
+}
