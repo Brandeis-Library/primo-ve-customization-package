@@ -1088,3 +1088,11 @@ button.badgesButton {
 md-virtual-repeat-container prm-icon-after {
   display: none;
 }
+
+prm-service-links prm-icon-after {
+  display: none;
+}
+
+prm-chapters-results-line prm-icon-after {
+  display: none;
+}
