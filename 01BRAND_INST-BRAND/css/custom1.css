@@ -1096,3 +1096,7 @@ prm-service-links prm-icon-after {
 prm-chapters-results-line prm-icon-after {
   display: none;
 }
+
+prm-ngrs-results-button prm-icon-after {
+  display: none;
+}
