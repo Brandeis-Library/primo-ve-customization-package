@@ -1100,3 +1100,7 @@ prm-chapters-results-line prm-icon-after {
 prm-ngrs-results-button prm-icon-after {
   display: none;
 }
+
+.section-content .md-chips div[data-facet-value="tlevel-open_access"] {
+  display: none;
+}
