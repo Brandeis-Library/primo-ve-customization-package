@@ -1,4 +1,7 @@
 (function () {
+
+  
+  
   'use strict';
   'use strict';
 
@@ -16,6 +19,8 @@
   var nonhathiTrustMember = false;
   ('use strict');
   ('use strict');
+
+  
 
   /*----------below is the code for libchat-----------*/
   // Adds the chat button
@@ -51,8 +56,6 @@
     });
   })();
 
-  
-
   //Google Tag Manager
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -60,19 +63,18 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T489X88');
 
-  //Google Analytics 4
-  var googleAnalyticsUrl = document.createElement('script');
-  googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-SBKFHHD1QW";
-  googleAnalyticsUrl.type = 'text/javascript';
-  googleAnalyticsUrl.async = true;
-  document.head.appendChild(googleAnalyticsUrl);
-
-  var googleAnalyticsCode = document.createElement('script');
-  googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-SBKFHHD1QW');`;
-  document.head.appendChild(googleAnalyticsCode);   
+   //Google Analytics 4
+   var googleAnalyticsUrl = document.createElement('script');
+   googleAnalyticsUrl.src = "https://www.googletagmanager.com/gtag/js?id=G-SBKFHHD1QW";
+   googleAnalyticsUrl.type = 'text/javascript';
+   googleAnalyticsUrl.async = true;
+   document.head.appendChild(googleAnalyticsUrl);
+   var googleAnalyticsCode = document.createElement('script');
+   googleAnalyticsCode.innerHTML = `window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-SBKFHHD1QW');`;
+   document.head.appendChild(googleAnalyticsCode);   
 
   //for continued checking
   setInterval(function () {
@@ -247,6 +249,34 @@ gtag('config', 'G-SBKFHHD1QW');`;
     },
   ]);
 
+  app.controller('FacetToTopController', function($scope) {
+    this.$onInit = function(){
+      {
+        var facetGroup = $scope.$parent.$parent.$ctrl.facetGroup;
+        function moveToTop(topFacets)
+        {
+            var topFacetObjects = [];
+            angular.forEach(facetGroup.values, function(facet, index) {
+                if(topFacets.indexOf(facet.value) != -1)
+                {
+                    topFacetObjects.push(facet);
+                }
+            });
+            topFacetObjects.reverse();
+            topFacetObjects.forEach( function(facet, index) {
+                facetGroup.values.sort(function(x,y){ return x == facet ? -1 : y == facet ? 1 : 0; });
+            });
+        }
+        if(facetGroup.name == "rtype")
+        {
+            facetGroup.displayedCount = 8;
+            var topFacets = [ "books" ];
+            moveToTop(topFacets);
+        }
+      }
+    };
+});
+
 
    app.controller('prmBlankIllAfterCtrl', [
     function () {
@@ -393,7 +423,7 @@ angular
                   </div>\
               </div>\
           </div>\
-      </div><availability-counts></availability-counts>',
+      </div><availability-counts></availability-counts><span ng-controller="FacetToTopController"></span>',
       controller: ['$scope', '$location', 'searchTargets', function ($scope, $location, searchTargets) {
         this.$onInit = function () {
           $scope.name = this.parentCtrl.facetGroup.name
