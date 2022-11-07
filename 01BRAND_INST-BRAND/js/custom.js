@@ -268,7 +268,6 @@
         }
         if(facetGroup.name == "rtype")
         {
-            facetGroup.displayedCount = 8;
             var topFacets = [ "books" ];
             moveToTop(topFacets);
         }
