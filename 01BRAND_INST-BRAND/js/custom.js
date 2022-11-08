@@ -270,6 +270,7 @@
         {
             var topFacets = [ "books" ];
             moveToTop(topFacets);
+          
         }
       }
     };
@@ -875,6 +876,9 @@ function addFindingAidLink(){
   //Robert D. Farber University Archives and Special Collections
   if (document.location.search.indexOf('81430927000001921') !== -1){
     collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Robert D. Farber University Archives and Special Collections', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/index.html">Robert D. Farber University Archives and Special Collections</a>');
+  }
+  if (document.location.search.indexOf('81475452180001921') !== -1){
+    collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Learn more about this collection', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/essays/special-collections/sacco-vanzetti.html">Learn more about this collection</a>');
   }
 
 }
