@@ -182,7 +182,8 @@
   });
 
   app.component('prmServiceNgrsAfter', {
-    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a></div>'
+    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a></div>',
+    controller: 'prmServiceNgrsAfterController'
   });
 
  /* app.component('prmFacetExactAfter', {
@@ -221,6 +222,13 @@
     function () {
       blankILLAfter();
     },
+  ]);
+
+  app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
+
+
+    toggleInterlibraryLoanFAQButton();
+  }
   ]);
 
   app.controller('prmLoanAfterController', ['angularLoad', '$scope',
@@ -932,6 +940,18 @@ window.addEventListener('scroll', function (e) {
     }
   }
 });
+
+function toggleInterlibraryLoanFAQButton(){
+   if (document.querySelector('prm-rapido-no-offer-message') !== null){
+    document.getElementById('rapidoOneSearchLinkFullDisplay').setAttribute('style', 'display: none;');
+  }
+  else if (document.querySelector('span[translate="nui.ngrs.physical.getitbtn"]') !== null){
+    document.getElementById('rapidoOneSearchLinkFullDisplay').setAttribute('style', 'display: block;');
+  }
+  else {
+    setTimeout(toggleInterlibraryLoanFAQButton, 500);
+  }
+}
 
 function blankILLAfter(){
   
