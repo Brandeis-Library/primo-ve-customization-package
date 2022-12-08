@@ -186,6 +186,10 @@
     controller: 'prmServiceNgrsAfterController'
   });
 
+  app.component('prmServiceDetailsAfter', {
+    controller: 'prmServiceDetailsAfterController',
+  });
+
  /* app.component('prmFacetExactAfter', {
     template: '<availability-counts></availability-counts>'
   });*/
@@ -225,10 +229,28 @@
   ]);
 
   app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
-
-
     toggleInterlibraryLoanFAQButton();
   }
+  ]);
+
+  app.controller('prmServiceDetailsAfterController', ['$scope',
+    function ($scope) {
+
+      var subjectValues = $scope.$parent.$ctrl["item"]["pnx"]["display"]["subject"]
+      console.log("subjectValues are")
+      console.log(subjectValues);
+  
+     for (var i = 0; i < subjectValues.length; i++){
+       var metadataKeys = Object.keys(metadataSubstitutions)
+       for (var j = 0; j < metadataKeys.length; j++){
+         var metadataKey = metadataKeys[j];
+         subjectValues[i] = subjectValues[i].replace(metadataKey, metadataSubstitutions[metadataKey])
+       }
+     }
+
+    
+    
+    }
   ]);
 
   app.controller('prmLoanAfterController', ['angularLoad', '$scope',
@@ -256,10 +278,12 @@
     },
   ]);
 
+  //This is also being used for correcting facet values
   app.controller('FacetToTopController', function($scope) {
     this.$onInit = function(){
-      {
-        var facetGroup = $scope.$parent.$parent.$ctrl.facetGroup;
+
+      //Facet to top functionality
+       var facetGroup = $scope.$parent.$parent.$ctrl.facetGroup;
         function moveToTop(topFacets)
         {
             var topFacetObjects = [];
@@ -280,7 +304,30 @@
             moveToTop(topFacets);
           
         }
+
+      
+      //console.log("facet controller is ");
+      //console.log($scope.$parent.$parent.$ctrl);
+      
+      var facetGroup = $scope.$parent.$parent.$ctrl.facetGroup;
+      
+      //console.log("facetGroup is ");
+      //console.log(facetGroup);
+      
+      if(facetGroup.name == "topic"){
+
+          console.log(facetGroup.values);
+          facetGroup.values.forEach( function(facet, index) {
+                if (metadataSubstitutions[facet.value] !== undefined){
+                  facet.value = metadataSubstitutions[facet.value]
+                }
+                var facetValueInTitleCase = toSentenceCase(facet.value);
+                if (metadataSubstitutions[facetValueInTitleCase] !== undefined){
+                  facet.value = metadataSubstitutions[facetValueInTitleCase];
+                }
+            });
       }
+
     };
 });
 
@@ -885,8 +932,8 @@ function addFindingAidLink(){
   if (document.location.search.indexOf('81430927000001921') !== -1){
     collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Robert D. Farber University Archives and Special Collections', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/index.html">Robert D. Farber University Archives and Special Collections</a>');
   }
-  if (document.location.search.indexOf('81475452180001921') !== -1){
-    collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Learn more about this collection', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/essays/special-collections/sacco-vanzetti.html">Learn more about this collection</a>');
+  if (document.location.search.indexOf('81475452180001921') !== -1){	
+    collectionInfo.innerHTML = collectionInfo.innerHTML.replace('Learn more about this collection', '<a id="findingAidLink" href="https://www.brandeis.edu/library/archives/essays/special-collections/sacco-vanzetti.html">Learn more about this collection</a>');	
   }
 
 }
@@ -941,6 +988,18 @@ window.addEventListener('scroll', function (e) {
   }
 });
 
+function blankILLAfter(){
+  
+  if (document.querySelector('form h3') !== null){
+    var currentHTML = document.querySelector('form h3').outerHTML;
+    var newHTML = currentHTML + '</h3><div id="illFormMessage" style="background-color: #ffffcc; border-radius: 10px; width: 100%; font-size: 75%; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-radius: 5px; border-color: lightgray; border-width: 1px; border-style: solid;"><ul><li>For more information on placing requests, go to the <a href="https://www.brandeis.edu/library/borrowing/ill/faq.html">Interlibrary Loan & Scan on Demand FAQ.</a></li><li>Check the status of your request in your <a href="https://search.library.brandeis.edu/discovery/account?vid=01BRAND_INST:BRAND&section=requests&lang=en">OneSearch Account.</a></li><li>Use the "Notes" field to add any extra details that may help us identify or locate your item.</li><li>Email <a href="mailto:ill@brandeis.edu">ill@brandeis.edu</a> with any questions.</li></ul><p><span style="font-weight: 400">Note:</span>  To put materials on course reserve for your class, please use the <a href="https://www.brandeis.edu/library/teaching/reserves/index.html">Course Reserve Request form.</a></p></div>';
+    document.querySelector('form h3').innerHTML = newHTML;
+  }
+  else {
+    setTimeout(blankILLAfter, 500);
+  }
+}
+
 function toggleInterlibraryLoanFAQButton(){
    if (document.querySelector('prm-rapido-no-offer-message') !== null){
     document.getElementById('rapidoOneSearchLinkFullDisplay').setAttribute('style', 'display: none;');
@@ -953,14 +1012,38 @@ function toggleInterlibraryLoanFAQButton(){
   }
 }
 
-function blankILLAfter(){
-  
-  if (document.querySelector('form h3') !== null){
-    var currentHTML = document.querySelector('form h3').outerHTML;
-    var newHTML = currentHTML + '</h3><div id="illFormMessage" style="background-color: #ffffcc; border-radius: 10px; width: 100%; font-size: 75%; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-radius: 5px; border-color: lightgray; border-width: 1px; border-style: solid;"><ul><li>For more information on placing requests, go to the <a href="https://www.brandeis.edu/library/borrowing/ill/faq.html">Interlibrary Loan & Scan on Demand FAQ.</a></li><li>Check the status of your request in your <a href="https://search.library.brandeis.edu/discovery/account?vid=01BRAND_INST:BRAND&section=requests&lang=en">OneSearch Account.</a></li><li>Use the "Notes" field to add any extra details that may help us identify or locate your item.</li><li>Email <a href="mailto:ill@brandeis.edu">ill@brandeis.edu</a> with any questions.</li></ul><p><span style="font-weight: 400">Note:</span>  To put materials on course reserve for your class, please use the <a href="https://www.brandeis.edu/library/teaching/reserves/index.html">Course Reserve Request form.</a></p></div>';
-    document.querySelector('form h3').innerHTML = newHTML;
+function toSentenceCase(str){
+  var stringArray = str.split(' ');
+  for (i = 0; i < stringArray.length; i++){
+    stringArray[i] = stringArray[i].charAt(0).toLowerCase() + stringArray[i].substring(1);
   }
-  else {
-    setTimeout(blankILLAfter, 500);
-  }
+  stringArray[0] = stringArray[0].charAt(0).toUpperCase() + stringArray[0].substring(1);
+  return stringArray.join(' '); 
 }
+
+ metadataSubstitutions = {
+   "Alien property": "Foreign-owned property",
+   "Tulsa Race Riot": "Tulsa Race Massacre",
+   "African American universities and colleges": "Historically Black Colleges and Universities (HBCUs)",
+   "Asian flu": "1957–1958 influenza pandemic",
+   "Bildungsromans": "Coming of age--Fiction",
+   "Boat people": "Political refugees",
+   "Child pornography": "Child sexual abuse material",
+   "Children of sperm donors": "Donor offspring",
+   "Defloration": "Loss of virginity",
+   "Gays": "Gay people",
+   "Gender-nonconforming people": "Non-binary people",
+   "God (Islam)": "Allah",
+   "Illegitimacy": "Nonmarital births",
+   "Illegitimate children": "Children of unmarried parents",
+   "Indians of North America": "Indigenous peoples of North America",
+   "Juvenile delinquents": "Youth in custody",
+   "Leprosy": "Hansen's disease",
+   "Manic-depressive illness": "Bipolar disorder",
+   "Oriental literature": "Asian literature",
+   "Problem children": "Children with behavioral problems",
+   "Racially mixed people": "Multiracial people",
+   "Schizophrenics": "People with schizophrenia",
+   "Sexual reorientation programs": "Sexual conversion programs",
+   "Sexual minorities": "LGBTQ+ people" 
+ }
