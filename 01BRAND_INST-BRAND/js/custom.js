@@ -248,7 +248,7 @@
        }
      }
 
-    
+    $scope.$parent.$ctrl["item"]["pnx"]["display"]["subject"].sort();
     
     }
   ]);
@@ -304,30 +304,6 @@
             moveToTop(topFacets);
           
         }
-
-      
-      //console.log("facet controller is ");
-      //console.log($scope.$parent.$parent.$ctrl);
-      
-      var facetGroup = $scope.$parent.$parent.$ctrl.facetGroup;
-      
-      //console.log("facetGroup is ");
-      //console.log(facetGroup);
-      
-      if(facetGroup.name == "topic"){
-
-          console.log(facetGroup.values);
-          facetGroup.values.forEach( function(facet, index) {
-                if (metadataSubstitutions[facet.value] !== undefined){
-                  facet.value = metadataSubstitutions[facet.value]
-                }
-                var facetValueInTitleCase = toSentenceCase(facet.value);
-                if (metadataSubstitutions[facetValueInTitleCase] !== undefined){
-                  facet.value = metadataSubstitutions[facetValueInTitleCase];
-                }
-            });
-      }
-
     };
 });
 
