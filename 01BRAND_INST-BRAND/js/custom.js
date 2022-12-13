@@ -239,16 +239,18 @@
       var subjectValues = $scope.$parent.$ctrl["item"]["pnx"]["display"]["subject"]
       console.log("subjectValues are")
       console.log(subjectValues);
-  
-     for (var i = 0; i < subjectValues.length; i++){
-       var metadataKeys = Object.keys(metadataSubstitutions)
-       for (var j = 0; j < metadataKeys.length; j++){
-         var metadataKey = metadataKeys[j];
-         subjectValues[i] = subjectValues[i].replace(metadataKey, metadataSubstitutions[metadataKey])
+      
+    if (subjectValues){
+       for (var i = 0; i < subjectValues.length; i++){
+         var metadataKeys = Object.keys(metadataSubstitutions)
+         for (var j = 0; j < metadataKeys.length; j++){
+           var metadataKey = metadataKeys[j];
+           subjectValues[i] = subjectValues[i].replace(metadataKey, metadataSubstitutions[metadataKey])
+         }
        }
-     }
-
-    $scope.$parent.$ctrl["item"]["pnx"]["display"]["subject"].sort();
+       $scope.$parent.$ctrl["item"]["pnx"]["display"]["subject"].sort();
+    }
+   
     
     }
   ]);
