@@ -29,7 +29,7 @@
     lc.async = 'true';
     lc.src =
       ('https:' == document.location.protocol ? 'https://' : 'http://') +
-      'v2.libanswers.com/load_chat.php?hash=8695fcdfdfdf1ec2b50aabde6d1afd61';
+      'answers.library.brandeis.edu/load_chat.php?hash=8695fcdfdfdf1ec2b50aabde6d1afd61';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(lc, s);
 
