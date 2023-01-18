@@ -1024,3 +1024,63 @@ function toSentenceCase(str){
    "Sexual reorientation programs": "Sexual conversion programs",
    "Sexual minorities": "LGBTQ+ people" 
  }
+
+function radioButtons() {
+    var checkForForm = window.location.href;
+    
+    if (window.location.href.search('discovery/blankIll') !== -1) {
+        const elem = document.getElementsByTagName("md-radio-button")[2];
+        for (const a of elem.attributes) {
+            if (a.name == 'aria-checked') {
+                var checkTrue = a.value;
+                if (checkTrue == 'true') {
+                    document.getElementById('form_field_pickupLocation').style.display = 'block';
+                } else {
+                    document.getElementById('form_field_pickupLocation').style.display = 'none';
+                }
+            }
+        }
+        document.getElementsByTagName("md-radio-button")[2].addEventListener('click', function(event) {
+            const elem = document.getElementsByTagName("md-radio-button")[2];
+            for (const a of elem.attributes) {
+                if (a.name == 'aria-checked') {
+                    var checkTrue = a.value;
+                    if (checkTrue == 'true') {
+                        document.getElementById('form_field_pickupLocation').style.display = 'none';
+                    } else {
+                        document.getElementById('form_field_pickupLocation').style.display = 'block';
+                    }
+                }
+            }
+        });
+        document.getElementsByTagName("md-radio-button")[3].addEventListener('click', function(event) {
+            const elem = document.getElementsByTagName("md-radio-button")[3];
+            for (const a of elem.attributes) {
+                if (a.name == 'aria-checked') {
+                    var checkTrue = a.value;
+                    if (checkTrue == 'true') {
+                        document.getElementById('form_field_pickupLocation').style.display = 'block';
+                    } else {
+                        document.getElementById('form_field_pickupLocation').style.display = 'none';
+                    }
+                }
+            }
+        });
+        document.getElementsByTagName("md-radio-button")[4].addEventListener('click', function(event) {
+            const elem = document.getElementsByTagName("md-radio-button")[3];
+            for (const a of elem.attributes) {
+                if (a.name == 'aria-checked') {
+                    var checkTrue = a.value;
+                    if (checkTrue == 'true') {
+                        document.getElementById('form_field_pickupLocation').style.display = 'none';
+                    } else {
+                        document.getElementById('form_field_pickupLocation').style.display = 'block';
+                    }
+                }
+            }
+        });
+    }
+}
+window.setInterval(function() {
+    radioButtons();
+}, 500);
