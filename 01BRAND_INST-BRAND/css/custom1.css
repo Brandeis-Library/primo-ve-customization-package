@@ -1104,3 +1104,7 @@ prm-ngrs-results-button prm-icon-after {
 .section-content .md-chips div[data-facet-value="tlevel-open_access"] {
   display: none;
 }
+
+prm-topbar .isServicePage {
+  display: block;
+}
