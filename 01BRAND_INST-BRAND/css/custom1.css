@@ -1108,3 +1108,10 @@ prm-ngrs-results-button prm-icon-after {
 prm-topbar .isServicePage {
   display: block;
 }
+
+prm-stand-alone-login #logoImage {
+  background-color: darkblue;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+}
