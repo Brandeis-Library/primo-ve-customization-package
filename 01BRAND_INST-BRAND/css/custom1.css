@@ -963,7 +963,7 @@ prm-blank_ill prm-request prm-form-field md-input-container label:not(.md-no-flo
   width: auto;
 }
 
-prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore):not(#dayStartListBox):not(#dayEndListBox) {
    overflow: visible;
    text-overflow: unset;
    white-space: normal;
@@ -1024,7 +1024,7 @@ prm-blank_ill prm-request prm-form-field md-input-container label:not(.md-no-flo
   width: auto;
 }
 
-prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+prm-blank_ill md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore):not(#dayStartListBox):not(#dayEndListBox) {
    overflow: visible;
    text-overflow: unset;
    white-space: normal;
