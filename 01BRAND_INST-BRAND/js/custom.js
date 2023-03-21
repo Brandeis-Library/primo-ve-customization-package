@@ -128,6 +128,17 @@
     },
   ]);
 
+  app.component('prmBriefResultAfter', {
+		bindings: { parentCtrl: '<' },
+		controller: 'prmBriefResultAfterController',
+		template: ''
+	});
+	app.controller('prmBriefResultAfterController', [function () {
+		this.$onInit = function () {
+			changeArchiveAvailabilityLine(this);
+		};
+	}]);
+
   app.component('prmExploreFooterAfter', {
     bindings: { parentCtrl: '<' },
 
@@ -1084,3 +1095,30 @@ function radioButtons() {
 window.setInterval(function() {
     radioButtons();
 }, 500);
+
+function changeArchiveAvailabilityLine(vm) {
+	var sourceid = vm.parentCtrl.item.pnx.control.originalsourceid[0]; // Use this to check if an archival collection
+	var almaid = vm.parentCtrl.item.pnx.control.recordid[0];
+	if (sourceid.search('oai:brandeis//repositories/2') !== -1){
+		// Need to build in a delay so that elements are fully formed.
+		// Can't send the interval id (myInterval) as part of the setInterval function - not sure why...
+		// but adding a timeOut that runs straight away and including it in that works perfectly.
+		var myInterval = setInterval(function () {
+			setTimeout(editAvailabilityText, 0, almaid, myInterval);
+		}, 200); // Need to build in a delay so that elements are fully formed.
+	}
+	function editAvailabilityText(almaid, myInterval) {
+		var span_array = document.getElementsByClassName('button-content');
+		for (var i = 0; i < span_array.length; i++) {
+			var span_id = span_array[i].getAttribute('id');
+			if (span_id !== null) {
+				if (span_id.substring(0, almaid.length) == almaid) {
+					var ava = span_array[i].getElementsByClassName('availability-status')[0];
+					ava.setAttribute('class', 'availability-status available_in_library'); // This changes the colour; anything else?
+					ava.textContent = "Available at Brandeis Library Special Collections";
+					clearInterval(myInterval);
+				}
+			}
+		}
+	}
+}
