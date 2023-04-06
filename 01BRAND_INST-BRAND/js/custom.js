@@ -331,8 +331,8 @@
   //Custom actions
   app.component('prmActionListAfter', {
   template: `<custom-action name="broken_link"
-    label="Broken Link"
-    index=1
+    label="Report Broken Link"
+    index=9
     icon="ic_report_24px"
     icon-set="content"
     link= "https://answers.library.brandeis.edu/problemreport" ></custom-action><custom-action name="ask_a_librarian"
