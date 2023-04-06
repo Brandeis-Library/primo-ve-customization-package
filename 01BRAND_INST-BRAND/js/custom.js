@@ -333,8 +333,8 @@
   template: `<custom-action name="broken_link"
     label="Broken Link"
     index=1
-    icon="ic_error_24px"
-    icon-set="alert"
+    icon="ic_report_24px"
+    icon-set="content"
     link= "https://answers.library.brandeis.edu/problemreport" ></custom-action><custom-action name="ask_a_librarian"
   `
 })
