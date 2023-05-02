@@ -202,6 +202,10 @@
     controller: 'prmServiceDetailsAfterController',
   });
 
+  app.component('prmLocationItemsAfter', {
+    controller: 'prmLocationItemsAfterController',
+  });
+
  /* app.component('prmFacetExactAfter', {
     template: '<availability-counts></availability-counts>'
   });*/
@@ -233,6 +237,21 @@
       }, 500)	
     }	
   });
+
+
+  app.controller('prmLocationItemsAfterController', [
+    function () {
+      var checkIfFilterButtonLoaded = setInterval(function(){
+        var filterButton = document.querySelector('prm-location-items button[aria-label="Filter"]')
+        //Without checking for whether the filter icon has been toggled, this customization will toggle and then untoggle the filter options -- I don't know why.  Probably could be avoided by doing this outside of the component
+        var filterIcon = document.querySelector('prm-location-items md-icon[md-svg-icon="primo-ui:filter"');
+        if ((filterButton) && (filterIcon)){
+          document.querySelector('prm-location-items button[aria-label="Filter"]').click();
+          clearInterval(checkIfFilterButtonLoaded);
+        }
+      }, 500);
+    },
+  ]);
 
    app.controller('prmBlankIllAfterCtrl', [
     function () {
@@ -1279,3 +1298,4 @@ function changeArchiveAvailabilityLine(vm) {
 		}
 	}
 }
+
