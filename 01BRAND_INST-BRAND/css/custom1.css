@@ -1115,7 +1115,3 @@ prm-stand-alone-login #logoImage {
   border-radius: 3px;
   width: 100%;
 }
-
-.section-content .md-chips div[data-facet-value="tlevel-open_access"] {
-  display: none;
-}
