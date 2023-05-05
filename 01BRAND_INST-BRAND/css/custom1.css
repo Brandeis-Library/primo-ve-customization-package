@@ -1115,3 +1115,7 @@ prm-stand-alone-login #logoImage {
   border-radius: 3px;
   width: 100%;
 }
+
+prm-no-search-result > md-card {
+  display:none;
+}
