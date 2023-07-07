@@ -1123,3 +1123,7 @@ prm-no-search-result > md-card {
 md-optgroup[label="Pick Up Options"] {
   display: none;
 }
+
+md-option[value="15380439470001921"]{
+  display: none;
+}
