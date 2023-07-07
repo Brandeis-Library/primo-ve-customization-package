@@ -1119,3 +1119,7 @@ prm-stand-alone-login #logoImage {
 prm-no-search-result > md-card {
   display:none;
 }
+
+md-optgroup[label="Pick Up Options"] {
+  display: none;
+}
