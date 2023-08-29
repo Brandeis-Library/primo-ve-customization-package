@@ -214,6 +214,21 @@
     template: '<div> <md-card class="default-card zero-margin _md md-primoExplore-theme"> <md-card-title> <md-card-title-text> <span class="md-headline ng-scope">No results found</span> </md-card-title-text> </md-card-title> <md-card-content> <p> <span>There are no results matching your search:<blockquote> <i>{{$ctrl.getSearchTerm()}}</i>. </blockquote> <div ng-if="$ctrl.pciSetting !== \'true\'"> <a href="https://search.library.brandeis.edu/discovery/search?query=any,contains,{{$ctrl.getSearchTerm()}}&tab=CentralIndex&search_scope=CentralIndex&vid=01BRAND_INST:BRAND&offset=0&sortby=rank&pcAvailability=true"> <b>Try this search again for items that you can request from other libraries through Interlibrary Loan</b> </a> </div> </span> </p> <p> <span class="bold-text ng-scope">Suggestions:</span> </p> <ul> <li class="ng-scope">Make sure that all words are spelled correctly.</li> <li class="ng-scope">Try fewer or more general search terms.</li> <li class="ng-scope">Follow these <a href="https://guides.library.brandeis.edu/searchbasics">Tips for searching Library resources</a>.</li> <li class="ng-scope"><a onclick="document.getElementById(\'lcs_slide_out_button-9616\').click()">Ask a librarian</a>.</li> </ul> </md-card-content></md-card></div>'
   });
 
+  app.component('prmSearchBookmarkFilterAfter', {  
+    template: `
+      <help-menu-topbar>
+ 
+          <a class="md-icon-button button-over-dark md-button md-primoExplore-theme md-ink-ripple"
+                    aria-label="Open Search Help Menu" target="_blank"
+                    href="https://www.brandeis.edu/library/research/books-articles/onesearch-faq.html" title="open OneSearch help menu">
+            <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
+          </a>
+
+        <span class="notification-indicator"></span>
+      </help-menu-topbar>`
+  });
+
+
   app.component('prmIconAfter', {template:'<badges-modal></badges-modal><fav-overlay></fav-overlay>'});
 
   app.component('prmTabsAndScopesSelectorAfter',{	
