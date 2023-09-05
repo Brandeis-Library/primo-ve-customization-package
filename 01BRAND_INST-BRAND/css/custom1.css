@@ -1127,3 +1127,9 @@ md-optgroup[label="Pick Up Options"] {
 md-option[value="15380439470001921"]{
   display: none;
 }
+
+prm-alma-viewit-items .item-status {
+
+  display: block;
+
+}

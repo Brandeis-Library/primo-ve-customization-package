@@ -220,7 +220,7 @@
  
           <a class="md-icon-button button-over-dark md-button md-primoExplore-theme md-ink-ripple"
                     aria-label="Open Search Help Menu" target="_blank"
-                    href="https://www.brandeis.edu/library/research/books-articles/onesearch-faq.html" title="open OneSearch help menu">
+                    href="https://www.brandeis.edu/library/research/books-articles/onesearch-faq.html" title="OneSearch help menu (opens in new tab)">
             <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
           </a>
 
