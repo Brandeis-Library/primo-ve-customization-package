@@ -1133,3 +1133,8 @@ prm-alma-viewit-items .item-status {
   display: block;
 
 }
+
+#newspaperButtonContainer {
+    margin-bottom: 20px;
+    text-align: center;
+}
