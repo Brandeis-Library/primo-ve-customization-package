@@ -170,7 +170,7 @@
     }
   }
 });
-
+    
   //Library banner alert message!!
   app.component('prmBackToLibrarySearchButtonAfter', {
     template: '',
@@ -401,6 +401,12 @@
    app.component('prmAtozSearchBarAfter', {
     template: '<div id="backToCatalog" style=""><prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="back-to-search"></prm-icon><a href="/">Back to Catalog</a></div>'
   });
+
+   app.component('prmNewspapersSearchBarAfter', {
+    template: '<div id="backToCatalog" style=""><prm-icon svg-icon-set="primo-ui" icon-type="svg" icon-definition="back-to-search"></prm-icon><a href="/">Back to Catalog</a></div>'
+  });
+
+   
 
   //Values for external search  
 app.value('searchTargets', [{
