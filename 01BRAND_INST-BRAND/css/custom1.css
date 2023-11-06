@@ -1063,10 +1063,10 @@ prm-journals prm-resource-recommender {
   margin-top: 10px;
   margin-bottom: 10px;
   position: relative;
-  top: -73px;  
+  top: -73px;
 }
 
-@media(max-width: 1280px){
+@media(max-width: 1574px){
   #backToCatalog {
     float: right;
     right: 50px;
