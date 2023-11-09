@@ -195,9 +195,10 @@
     controller: 'prmServiceNgrsAfterController'
   });
 
+  /*
   app.component('prmServiceDetailsAfter', {
     controller: 'prmServiceDetailsAfterController',
-  });
+  });*/
 
   app.component('prmLocationItemsAfter', {
     controller: 'prmLocationItemsAfterController',
@@ -299,6 +300,8 @@
   }
   ]);
 
+
+  /*
   app.controller('prmServiceDetailsAfterController', ['$scope',
     function ($scope) {
 
@@ -319,7 +322,7 @@
    
     
     }
-  ]);
+  ]);*/
 
   app.controller('prmLoanAfterController', ['angularLoad', '$scope',
     function (angularLoad, $scope) {
