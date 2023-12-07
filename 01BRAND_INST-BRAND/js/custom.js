@@ -291,20 +291,12 @@
       for (var i = 0; i < itemStatuses.length; i++){
           var itemStatus = itemStatuses[i].innerHTML;
 
-          var yearRegex = /until \d\d\/\d\d\/\d\d\d\d \d{1,2}:\d\d:\d\d EDT/
-          var regexResult = itemStatus.match(yearRegex);
-          if (regexResult !== null){
-              if (regexResult.length > 0){
-                  itemStatuses[i].innerHTML = itemStatuses[i].innerHTML.replace(regexResult[0], '');
-              }
-          }    
-
         
-          var yearRegex = /until \d\d\/\d\d\/\d\d\d\d/
+          var yearRegex = /In process of Preservation (until \d\d\/\d\d\/\d\d\d\d)/
           var regexResult = itemStatus.match(yearRegex);
           if (regexResult !== null){
-              if (regexResult.length > 0){
-                  itemStatuses[i].innerHTML = itemStatuses[i].innerHTML.replace(regexResult[0], '');
+              if (regexResult.length == 2){
+                  itemStatuses[i].innerHTML = itemStatuses[i].innerHTML.replace(regexResult[1], '');
                   //itemStatuses[i].innerHTML = 'oshkosh';
               }
           }    
