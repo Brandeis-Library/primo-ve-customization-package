@@ -285,6 +285,24 @@
           document.querySelector('prm-location-items button[aria-label="Filter"]').click();
           clearInterval(checkIfFilterButtonLoaded);
         }
+
+      //Remove dates on work orders 
+      var itemStatuses = document.querySelectorAll('span.item-status')
+      for (var i = 0; i < itemStatuses.length; i++){
+          var itemStatus = itemStatuses[i].innerHTML;
+
+        
+          var yearRegex = /In process of Preservation (until \d\d\/\d\d\/\d\d\d\d)/
+          var regexResult = itemStatus.match(yearRegex);
+          if (regexResult !== null){
+              if (regexResult.length == 2){
+                  itemStatuses[i].innerHTML = itemStatuses[i].innerHTML.replace(regexResult[1], '');
+                  //itemStatuses[i].innerHTML = 'oshkosh';
+              }
+          }    
+      }      
+
+        
       }, 500);
     },
   ]);
