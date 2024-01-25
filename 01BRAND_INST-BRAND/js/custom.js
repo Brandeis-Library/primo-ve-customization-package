@@ -403,15 +403,21 @@
     },
   ]);
 
-  //Custom actions
+ //Custom actions
   app.component('prmActionListAfter', {
   template: `<custom-action name="broken_link"
     label="Report Broken Link"
     index=9
     icon="ic_report_24px"
     icon-set="content"
-    link= "https://answers.library.brandeis.edu/problemreport" ></custom-action><custom-action name="ask_a_librarian"
-  `
+    link= "{{vm.link}}" ></custom-action><custom-action name="ask_a_librarian"
+  `,
+  controller: function($scope){
+      var vm = this;
+      var docID = getUrlParameter("docid");
+      vm.link = 'https://answers.library.brandeis.edu/problemreport?recordID=' + docID;
+  },
+    controllerAs: 'vm'
 })
 
   app.component('prmAdvancedSearchAfter', {
