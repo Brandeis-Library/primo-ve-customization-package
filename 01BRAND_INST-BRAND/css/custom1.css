@@ -1138,3 +1138,7 @@ prm-alma-viewit-items .item-status {
     margin-bottom: 20px;
     text-align: center;
 }
+
+button#global-search {
+  padding-top: 1px;
+}
