@@ -1142,3 +1142,13 @@ prm-alma-viewit-items .item-status {
 button#global-search {
   padding-top: 1px;
 }
+
+/*Remove obnoxious uppercase text styling*/
+prm-main-menu a span {
+  text-transform: none;
+  font-size: 110%;
+}
+
+prm-collection-navigation-breadcrumbs-item.root-item .md-button span {
+  text-transform: none;
+}
