@@ -1152,3 +1152,24 @@ prm-main-menu a span {
 prm-collection-navigation-breadcrumbs-item.root-item .md-button span {
   text-transform: none;
 }
+
+/*Remove obnoxious uppercase text styling*/
+prm-main-menu a span {
+  text-transform: none;
+  font-size: 110%;
+}
+
+prm-collection-navigation-breadcrumbs-item.root-item .md-button span {
+  text-transform: none;
+}
+
+#rapidoOneSearchLinkFullDisplay a.md-button {
+  text-transform: none !important;
+}
+
+span[translate="nui.ngrs.physical.getitbtn"] {
+  text-transform: none;
+  font-size: 1.1em;
+}
+
+
