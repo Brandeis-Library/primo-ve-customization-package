@@ -10,6 +10,7 @@
     'availabilityCounts',
     'badgesModal',
     'externalSearch',
+	'advancedSearchChevron',
     'customActions'
   ]);
 
@@ -230,7 +231,7 @@
   });
 
 
-  app.component('prmIconAfter', {template:'<badges-modal></badges-modal><fav-overlay></fav-overlay>'});
+  app.component('prmIconAfter', {template:'<badges-modal></badges-modal><fav-overlay></fav-overlay><search-chevron></search-chevron>'});
 
   app.component('prmTabsAndScopesSelectorAfter',{	
     bindings: {parentCtrl: '<'},	
@@ -1031,6 +1032,30 @@ angular
   });
   
 // END Badges modal module
+
+/*Advaned search chevron label*/
+
+angular
+  .module('advancedSearchChevron', [])
+  .component('searchChevron', {
+    template: '<chevron-label ng-if="$ctrl.showLabel">{{$ctrl.getLabel()}}</chevron-label>',
+    controller: function ($scope) {
+      this.$onInit = function() {
+        this.showLabel = false;
+        // Show the label if this icon is chevron-up and if the parent's controller contains the advancedSearch service
+        if (angular.isDefined($scope.$parent.$parent)) {
+          var icon = $scope.$parent.$parent;
+          if ((icon.$ctrl.iconDefinition == 'chevron-up') && (angular.isDefined(icon.$parent.$parent.$ctrl))) {
+            var search_ctrl = icon.$parent.$parent.$ctrl;
+            this.showLabel = angular.isDefined(search_ctrl.advancedSearchService);
+            this.getLabel = function() {
+              return (search_ctrl.advancedSearchCollapsed ? 'Show Search Fields' : 'Hide Search Fields');
+            }
+          }
+        }
+      }
+    }
+  });
 
 /* Add count to availability facet */
 angular
