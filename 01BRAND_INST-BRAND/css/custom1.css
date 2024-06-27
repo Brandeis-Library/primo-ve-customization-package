@@ -1172,4 +1172,8 @@ span[translate="nui.ngrs.physical.getitbtn"] {
   font-size: 1.1em;
 }
 
+prm-action-list .md-button {
+  text-transform: none;
+  font-size: .85em !important;
+}
 
