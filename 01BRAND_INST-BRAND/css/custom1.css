@@ -1177,3 +1177,8 @@ prm-action-list .md-button {
   font-size: .85em !important;
 }
 
+@media screen and (max-width: 500px) {
+  search-chevron {
+      display: none;
+  }
+}
