@@ -1430,7 +1430,7 @@ function enableNewspaperButton() {
                   //I'm not capturing situations where the user has searched for multiple terms -- I may add this in later
                    if (searchTermString.split(',').length == 3){
                        var queryTerm = searchTermString.split(',')[2];
-                       var linkHref = "https://search.library.brandeis.edu/discovery/npsearch?vid=01BRAND_INST:BRAND&query=any,contains," + queryTerm;
+                       var linkHref = "https://search.library.brandeis.edu/discovery/npsearch?vid=01BRAND_INST:BRAND&query=any,contains," + encodeURIComponent(queryTerm);
                    }
               }
              
