@@ -1182,3 +1182,7 @@ prm-action-list .md-button {
       display: none;
   }
 }
+
+md-list-item[aria-label="I am an alumnus. "] {
+  display: none;
+}
