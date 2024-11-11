@@ -174,7 +174,7 @@
     
   //Library banner alert message!!
   app.component('prmBackToLibrarySearchButtonAfter', {
-    template: '<div style="background-color: #ffc107; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">There is currently an issue with interlibrary loan article / chapter access.  Please contact <a href="mailto:ill@brandeis.edu">mailto:ill@brandeis.edu</a> if you need immediate help accessing your requested article or chapter.</div>',
+    template: '<div style="background-color: #ffc107; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">There is currently an issue with interlibrary loan article / chapter access.  Please contact <a href=":ill@brandeis.edu">mailto:ill@brandeis.edu</a> if you need immediate help accessing your requested article or chapter.</div>',
   });
 
   
