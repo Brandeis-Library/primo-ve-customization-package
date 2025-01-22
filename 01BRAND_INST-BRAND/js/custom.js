@@ -441,7 +441,7 @@
   //Values for external search  
 app.value('searchTargets', [{
     "name": "Worldcat",
-    "url": "https://brandeis.on.worldcat.org/search?",
+    "url": "https://search.worldcat.org/search?",
     "img": "https://search.library.brandeis.edu/discovery/custom/01BRAND_INST-BRAND/img/worldcat-logo.png",
     "alt": "Worldcat Logo",
     mapping: function (queries, filters) {
@@ -449,12 +449,12 @@ app.value('searchTargets', [{
         'any': 'kw',
         'title': 'ti',
         'creator': 'au',
-        'subject': 'su',
+        'sub': 'su',
         'isbn': 'bn',
         'issn': 'n2'
       }
       try {
-        return 'queryString=' + queries.map(part => {
+        return 'q=' + queries.map(part => {
           let terms = part.split(',')
           let type = query_mappings[terms[0]] || 'kw'
           let string = terms[2] || ''
