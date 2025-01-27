@@ -1183,9 +1183,9 @@ prm-action-list .md-button {
   }
 }
 
-md-list-item[aria-label^="I am an alumnus."] {
+/*md-list-item[aria-label^="I am an alumnus."] {
   display: none;
-}
+}*/
 
 md-list-item[aria-label^="None of the above apply?"]{
   display: none;
