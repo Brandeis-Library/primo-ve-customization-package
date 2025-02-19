@@ -471,7 +471,7 @@ app.value('searchTargets', [{
   {
     "name": "Google Scholar",
     "url": "https://scholar.google.com/scholar?q=",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Google-g-icon.png",
     "alt": "Google Scholar Logo",
     mapping: function (queries, filters) {
       try {

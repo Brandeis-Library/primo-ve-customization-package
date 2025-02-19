@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Brandeis Library Social Login</title>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+  body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .FACEBOOK {
+    background-color: #4267B2; /* Facebook blue */
+    color: white;
+  }
+  .GOOGLE {
+    background-color: #DB4437; /* Google red */
+    color: white;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Brandeis Library Login</h2>
+  <div class="g-recaptcha" data-sitekey="6LeS-csqAAAAAMEQL34yN0G-wDkdL8pOwvmdHMPP"></div> <br>  <button class="FACEBOOK" onclick="handleFacebookLogin()">Sign in with Facebook</button>
+  <button class="GOOGLE" onclick="handleGoogleLogin()">Sign in with Google</button>
+</div>
+
+<script>
+  function handleFacebookLogin() {
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LeS-csqAAAAAMEQL34yN0G-wDkdL8pOwvmdHMPP', {action: 'facebook_login'}).then(function(token) { // Replace with your site key
+        if (token) {
+          window.top.location.href='https://search.library.brandeis.edu/view/socialLogin?provider=FACEBOOK&amp;institution=01BRAND_INST&amp;lang=en&amp;authenticationProfile=social&amp;idpCode=social&amp;auth=SOCIAL_VIA_ALMA&amp;view=01BRAND_INST%3ABRAND&amp;isSilent=false&amp;institutionCode=01BRAND_INST&amp;backUrl=https%3A%2F%2Fsearch.library.brandeis.edu%2Fprimaws%2FsuprimaLogin%3Fvid%3D01BRAND_INST%3ABRAND%26target-url%3Dhttps%253A%252F%252Fsearch.library.brandeis.edu%252Fdiscovery%252Fsearch%253Fvid%253D01BRAND_INST%253ABRAND';
+        } else {
+          alert("Please complete the CAPTCHA.");
+        }
+      });
+    });
+  }
+
+  function handleGoogleLogin() {
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LeS-csqAAAAAMEQL34yN0G-wDkdL8pOwvmdHMPP', {action: 'google_login'}).then(function(token) { // Replace with your site key
+        if (token) {
+          window.top.location.href='https://search.library.brandeis.edu/view/socialLogin?provider=GOOGLE&institution=01BRAND_INST&lang=en&authenticationProfile=social&idpCode=social&auth=SOCIAL_VIA_ALMA&view=01BRAND_INST%3ABRAND&isSilent=false&institutionCode=01BRAND_INST&backUrl=https%3A%2F%2Fsearch.library.brandeis.edu%2Fprimaws%2FsuprimaLogin%3Fvid%3D01BRAND_INST%3ABRAND%26target-url%3Dhttps%253A%252F%252Fsearch.library.brandeis.edu%252Fdiscovery%252Fsearch%253Fvid%253D01BRAND_INST%253ABRAND';
+        } else {
+          alert("Please complete the CAPTCHA.");
+        }
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
