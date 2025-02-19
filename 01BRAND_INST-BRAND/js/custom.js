@@ -164,6 +164,10 @@
     },
   ]);
 
+  app.component('prmActionContainerAfter', {
+    controller: 'prmActionContainerAfterController',
+  });
+
   app.component('prmSearchBarAfter', {
   controller: function($scope) {
     this.$onInit = function() {
@@ -315,6 +319,32 @@
       blankILLAfter();
     },
   ]);
+
+  app.controller('prmActionContainerAfterController', ['$scope', function($scope){
+
+		this.$onInit = function(){
+			var parentCtrl = $scope.$parent.$ctrl
+			console.log("ParentCtrl!");
+            console.log(parentCtrl);
+			console.log("actionName is " + parentCtrl.actionName);
+			$scope.$watch(function(){return parentCtrl.actionName}, function(){
+				console.log("watch fires!");
+				
+				var sendToEmailNotificationElement = document.createElement('div');
+				sendToEmailNotificationElement.id = 'sendToEmailNotice';
+				sendToEmailNotificationElement.innerHTML  = '<div id="sendToEmailNotice" style="background-color: #F7EDA3; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-top: 5px; margin-bottom: 5px;">Use Report Broken Link or Ask / Chat with a Librarian to ask a question about a OneSearch record.</div>'
+				if (parentCtrl.actionName == "E-mail"){
+					
+					setTimeout(function(){
+						var subjectElement = document.querySelector('div[name="subject"]');
+						subjectElement.insertAdjacentElement("afterend", sendToEmailNotificationElement)
+					}, 1000);
+				}
+			}, true);
+
+		}
+	}
+	]);
 
   app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
     toggleInterlibraryLoanFAQButton();
