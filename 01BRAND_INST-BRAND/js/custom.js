@@ -157,16 +157,18 @@
     controller: 'prmCollectionDiscoveryCtrl',
   });
 
+
+	 app.component('prmActionContainerAfter', {
+    controller: 'prmActionContainerAfterController',
+  });
+
+
   app.controller('prmCollectionDiscoveryCtrl', [
     function () {
       console.log('collection discovery called!');
       addFindingAidLink();
     },
   ]);
-
-  app.component('prmActionContainerAfter', {
-    controller: 'prmActionContainerAfterController',
-  });
 
   app.component('prmSearchBarAfter', {
   controller: function($scope) {
@@ -198,7 +200,7 @@
   });
 
   app.component('prmServiceNgrsAfter', {
-    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a></div><a id="rapidoBlankFormLink" style="display: none;"></a>',
+    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a><a id="rapidoBlankFormLink" style="display: none;"></a></div>',
     controller: 'prmServiceNgrsAfterController'
   });
 
@@ -320,7 +322,8 @@
     },
   ]);
 
-  app.controller('prmActionContainerAfterController', ['$scope', function($scope){
+	
+	app.controller('prmActionContainerAfterController', ['$scope', function($scope){
 
 		this.$onInit = function(){
 			var parentCtrl = $scope.$parent.$ctrl
@@ -347,37 +350,28 @@
 	]);
 
   app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
-    //console.log("service ngrs");
-    //console.log($scope.$parent)
-    //console.log("Ebook offer");
-    //console.log($scope.$parent.$ctrl._bestOffer.ebookOffer);
-    $scope.$watch(function(){return $scope.$parent.$ctrl._bestOffer.ebookOffer}, function(){  
-        var RapidoServicesArray = $scope.$parent.$ctrl.rapidoServices;
-      for (var i = 0; i < RapidoServicesArray.length; i++){
-        var currentRapidoService = RapidoServicesArray[i];
-        if (currentRapidoService.serviceType == "RapidoEbookTile"){
-          if (!currentRapidoService.noKnownTerms){
-                 const rapidoBlankFormLink = document.getElementById('rapidoBlankFormLink');
-              rapidoBlankFormLink.classList.add('md-button', 'md-primoExplore-theme', 'md-ink-ripple', 'get_it_btn');
-              rapidoBlankFormLink.href = 'https://search.library.brandeis.edu/discovery/blankIll?vid=01BRAND_INST:BRAND';
-              rapidoBlankFormLink.style.paddingLeft = '6px';
-              rapidoBlankFormLink.style.paddingRight = '6px';
-              rapidoBlankFormLink.style.color = 'white';
-              rapidoBlankFormLink.style.backgroundColor = '#3d6e94';
-              rapidoBlankFormLink.style.borderRadius = '5px';
-              rapidoBlankFormLink.innerText = 'Request a Physical Book with the Blank Form';
-            
-              // Toggle display from none to block
-              rapidoBlankFormLink.style.display = 'inline-block'; // Or 'inline-block' if you prefer
-          }	
-        }
-      }
-        
-    });
-    toggleInterlibraryLoanFAQButton();
-    }
-    ]);
 
+		$scope.$watch(function(){return $scope.$parent.$ctrl._bestOffer.ebookOffer}, function(){  
+
+			if ($scope.$parent.$ctrl._bestOffer.ebookOffer == true){
+				   	  const rapidoBlankFormLink = document.getElementById('rapidoBlankFormLink');
+					  rapidoBlankFormLink.classList.add('md-button', 'md-primoExplore-theme', 'md-ink-ripple', 'get_it_btn');
+					  rapidoBlankFormLink.href = 'https://search.library.brandeis.edu/discovery/blankIll?vid=01BRAND_INST:BRAND';
+					  rapidoBlankFormLink.style.paddingLeft = '6px';
+					  rapidoBlankFormLink.style.paddingRight = '6px';
+					  rapidoBlankFormLink.style.color = 'white';
+					  rapidoBlankFormLink.style.backgroundColor = '#3d6e94';
+					  rapidoBlankFormLink.style.borderRadius = '5px';
+					  rapidoBlankFormLink.innerText = 'Request a Physical Book with the Blank Form';
+					
+					  // Toggle display from none to block
+					  rapidoBlankFormLink.style.display = 'inline-block'; // Or 'inline-block' if you prefer				
+			}
+	    
+	});
+	toggleInterlibraryLoanFAQButton();
+  }
+  ]);
 
 
   /*
@@ -1507,4 +1501,6 @@ function enableNewspaperButton() {
       }
   }
 }
+
+
 
