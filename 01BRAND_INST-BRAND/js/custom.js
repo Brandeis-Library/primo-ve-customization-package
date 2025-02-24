@@ -198,7 +198,7 @@
   });
 
   app.component('prmServiceNgrsAfter', {
-    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a></div>',
+    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a></div><a id="rapidoBlankFormLink" style="display: none;"></a>',
     controller: 'prmServiceNgrsAfterController'
   });
 
@@ -378,7 +378,6 @@
     }
     ]);
 
- 
 
 
   /*
