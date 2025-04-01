@@ -157,6 +157,10 @@
     controller: 'prmCollectionDiscoveryCtrl',
   });
 
+	 app.component('prmLoginAfter', {
+    controller: 'prmLoginAfterController',
+  });
+
 
 	 app.component('prmActionContainerAfter', {
     controller: 'prmActionContainerAfterController',
@@ -321,6 +325,62 @@
       blankILLAfter();
     },
   ]);
+
+	app.controller('prmLoginAfterController', ['$scope', '$interval', '$timeout', function($scope, $interval, $timeout){
+
+		this.$onInit = function(){
+
+		var pollingInterval = 100;
+        var elementFound = false;
+
+        // The selector for the element to be replaced
+        var targetSelector = 'prm-login md-list md-list-item[aria-label^="None of the above apply?"]';
+        var parentSelector = 'prm-login md-list';
+
+        var checkElement = function() {
+          var targetElement = document.querySelector(targetSelector);
+          if (targetElement) {
+            elementFound = true;
+            replaceElement(targetElement);
+            return true; // Stop polling once the element is found
+          }
+          return false;
+        };
+
+        // Replace the target element with the new link
+        var replaceElement = function(targetElement) {
+          var parentElement = targetElement.closest(parentSelector);
+
+          // Create the new <a> element
+          var newLink = document.createElement('a');
+          newLink.href = 'https://misc.library.brandeis.edu/primoRecaptcha/recaptcha-test.html';
+          newLink.classList.add('md-2-line', 'md-long-text', 'disable-hover', 'list-login', '_md-button-wrap', 'md-with-secondary', '_md', 'md-clickable');
+		  newLink.setAttribute('style', 'display: none;');
+          newLink.textContent = 'None of the above apply?  Log in via social media';
+
+          // Replace the target element with the new link
+          parentElement.replaceChild(newLink, targetElement);
+        };
+
+        // Polling logic
+        var pollingFunction = function() {
+          if (!elementFound) {
+            if (!checkElement()) {
+              $timeout(pollingFunction, pollingInterval); // Keep polling
+            }
+          }
+        };
+
+        // Start polling when the component is initialized
+        $timeout(pollingFunction, pollingInterval);
+
+			
+			var parentCtrl = $scope.$parent.$ctrl
+            console.log(parentCtrl);
+		}
+	}
+	]);
+
 
 	
 	app.controller('prmActionContainerAfterController', ['$scope', function($scope){
