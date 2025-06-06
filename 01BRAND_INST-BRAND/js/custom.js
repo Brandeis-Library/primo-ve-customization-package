@@ -199,8 +199,8 @@
     controller: 'prmLoanAfterController',
   });
 
-  app.component('prmRequestsAfter', {
-    controller: 'prmRequestsAfterController',
+  app.component('prmRequestAfter', {
+    controller: 'prmRequestAfterController',
   });
 
   app.component('prmServiceNgrsAfter', {
@@ -475,12 +475,33 @@
     },
   ]);
 
- app.controller('prmRequestsAfterController', ['angularLoad', '$scope',
-    function (angularLoad, $scope) {
-      //var $ctrl = $scope.$parent.$ctrl
-     // console.log($ctrl);
-    },
-  ]);
+  app.controller('prmRequestAfterController', ['angularLoad', '$scope',
+
+  function(angularLoad, $scope) {
+      this.$onInit = function() {
+          var $ctrl = $scope.$parent.$ctrl
+          console.log("requests controller!");
+          //console.log('library code is ' + $ctrl.item.delivery.bestlocation.libraryCode)
+          var libraryCode = $ctrl.item.delivery.bestlocation.libraryCode;
+
+          if (libraryCode == 'ASC') {
+
+              var requestElement = document.getElementsByTagName('prm-request')[0];
+
+              var html = '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;"><strong>An email will be sent</strong> to schedule an appointment in the Reading Room to view your requested item or to request further clarification.</p>';
+
+              var template = document.createElement('template');
+
+              template.innerHTML = html;
+
+              var newElement = template.content.children[0];
+
+              requestElement.insertBefore(newElement, requestElement.firstChild);
+
+          }
+      }
+  },
+]);
 
   //This is also being used for correcting facet values
   app.controller('FacetToTopController', function($scope) {
