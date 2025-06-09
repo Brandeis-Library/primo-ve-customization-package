@@ -355,7 +355,6 @@
           var newLink = document.createElement('a');
           newLink.href = 'https://misc.library.brandeis.edu/primoRecaptcha/recaptcha-test.html';
           newLink.classList.add('md-2-line', 'md-long-text', 'disable-hover', 'list-login', '_md-button-wrap', 'md-with-secondary', '_md', 'md-clickable');
-		  newLink.setAttribute('style', 'display: none;');
           newLink.textContent = 'None of the above apply?  Log in via social media';
 
           // Replace the target element with the new link
