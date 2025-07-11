@@ -407,8 +407,9 @@
 		}
 	}
 	]);
-
+/*
   app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
+
 
 		$scope.$watch(function(){return $scope.$parent.$ctrl._bestOffer.ebookOffer}, function(){  
 
@@ -430,7 +431,8 @@
 	});
 	toggleInterlibraryLoanFAQButton();
   }
-  ]);
+  
+  ]);*/
 
 
   /*
