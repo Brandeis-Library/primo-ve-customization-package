@@ -1191,3 +1191,11 @@ md-list-item[aria-label^="None of the above apply?"]{
   display: none;
 }*/
 
+/* Making Request buttons match Get It button styling */
+.md-button[aria-label^="Request"]{
+  background-color: #3d6e94;
+  color: white;
+  font-size: 1;
+  padding: .5em 1em !important;
+    border-radius: 5px;
+}
