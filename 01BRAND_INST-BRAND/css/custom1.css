@@ -1199,3 +1199,7 @@ md-list-item[aria-label^="None of the above apply?"]{
   padding: .5em 1em !important;
     border-radius: 5px;
 }
+
+prm-request-services h5 span[translate^="nui.request.request"] {
+  display: none;
+}
