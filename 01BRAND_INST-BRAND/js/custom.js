@@ -558,7 +558,7 @@
 })
 
   app.component('prmAdvancedSearchAfter', {
-    template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;"><strong>Just want to browse?</strong> Enter a ? into the search box and then select a language, material type, or publication year from the dropdown menus.</p>'
+    template: '<p style="border-radius: 10px; padding: 10px; background-color: #F7EDA3;"><strong>Just want to browse?</strong> Enter a * into the search box and then select a language, material type, or publication year from the dropdown menus.</p>'
   });
 
 
