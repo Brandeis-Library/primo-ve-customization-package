@@ -1203,3 +1203,7 @@ md-list-item[aria-label^="None of the above apply?"]{
 prm-request-services h5 span[translate^="nui.request.request"] {
   display: none;
 }
+
+prm-service-ngrs div.form_item_pickup{
+  display: none;
+}
