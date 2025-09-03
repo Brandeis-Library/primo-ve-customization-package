@@ -204,9 +204,10 @@
   });
 
   app.component('prmServiceNgrsAfter', {
-    template:'<div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a><a id="rapidoBlankFormLink" style="display: none;"></a></div>',
+    template:'<div style="background-color: #ffc107; width: 100%; padding: 6px; padding-bottom: 10px; border-radius: 5px; margin-bottom: 10px;"><strong>Note:</strong> Due to current changes in tariff policies, we may be unable to obtain physical materials from international libraries/countries.</div><div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; margin-left: 0px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a><a id="rapidoBlankFormLink" style="display: none;"></a></div>',
     controller: 'prmServiceNgrsAfterController'
   });
+
 
   /*
   app.component('prmServiceDetailsAfter', {
