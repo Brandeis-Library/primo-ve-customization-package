@@ -203,10 +203,14 @@
     controller: 'prmRequestAfterController',
   });
 
-  /*app.component('prmServiceNgrsAfter', {
-    template:'<div style="background-color: #ffc107; width: 100%; padding: 6px; padding-bottom: 10px; border-radius: 5px; margin-bottom: 10px; margin-top: 1%;"><strong>Note:</strong> Due to current changes in tariff policies, we may be unable to obtain physical materials from international libraries/countries.</div><div id="rapidoOneSearchLinkFullDisplay"><a class="md-button md-primoExplore-theme md-ink-ripple get_it_btn" href="https://www.brandeis.edu/library/borrowing/ill/index.html" style="padding-left: 6px; padding-right: 6px; margin-left: 0px; color: white; background-color: #3d6e94; border-radius: 5px;"">Learn More About Interlibrary Loan and Scan on Demand</a><a id="rapidoBlankFormLink" style="display: none;"></a></div>',
+  /*
+  app.component('prmServiceNgrsAfter', {
     controller: 'prmServiceNgrsAfterController'
   });*/
+
+	app.component('prmRapidoNoOfferMessageAfter', {
+    controller: 'prmRapidoNoOfferMessageAfterController'
+  });
 
 
   /*
@@ -408,32 +412,33 @@
 		}
 	}
 	]);
-/*
-  app.controller('prmServiceNgrsAfterController', ['$scope', function($scope){
 
+  app.controller('prmRapidoNoOfferMessageAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
+	this.$onInit = function(){
+		/*
+		console.log("rapido no offer controller");
+		console.log($scope.$ctrl);
+		
+		console.log("rapido no offer parent controller");
+		console.log($scope.$parent.$ctrl);
+		console.log($scope.$parent.$ctrl._showForm);*/
 
-		$scope.$watch(function(){return $scope.$parent.$ctrl._bestOffer.ebookOffer}, function(){  
-
-			if ($scope.$parent.$ctrl._bestOffer.ebookOffer == true){
-				   	  const rapidoBlankFormLink = document.getElementById('rapidoBlankFormLink');
-					  rapidoBlankFormLink.classList.add('md-button', 'md-primoExplore-theme', 'md-ink-ripple', 'get_it_btn');
-					  rapidoBlankFormLink.href = 'https://search.library.brandeis.edu/discovery/blankIll?vid=01BRAND_INST:BRAND';
-					  rapidoBlankFormLink.style.paddingLeft = '6px';
-					  rapidoBlankFormLink.style.paddingRight = '6px';
-					  rapidoBlankFormLink.style.color = 'white';
-					  rapidoBlankFormLink.style.backgroundColor = '#3d6e94';
-					  rapidoBlankFormLink.style.borderRadius = '5px';
-					  rapidoBlankFormLink.innerText = 'Request a Physical Book with the Blank Form';
-					
-					  // Toggle display from none to block
-					  rapidoBlankFormLink.style.display = 'inline-block'; // Or 'inline-block' if you prefer				
-			}
-	    
-	});
-	toggleInterlibraryLoanFAQButton();
+		var isGuest = $rootScope.$$childHead.$ctrl.userSessionManagerService.isGuest();
+		var showForm = $scope.$parent.$ctrl._showForm;
+		//NOTE: I am assuming that if isGuest is true, showForm will be false, since the form doesn't display to guests
+		if (isGuest === true && showForm === false){
+			document.querySelector('prm-rapido-no-offer-message').setAttribute('style', 'display: none;');
+		}
+		else if (isGuest === false && showForm === false){
+			document.querySelector('prm-rapido-no-offer-message').setAttribute('style', 'display: inline;');
+		}
+		else if (isGuest === false && showForm === true){
+			document.querySelector('prm-rapido-no-offer-message').setAttribute('style', 'display: none;');
+		}
+	
+	}
   }
-  
-  ]);*/
+  ]);
 
 
   /*
