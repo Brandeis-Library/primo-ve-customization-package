@@ -1207,3 +1207,12 @@ prm-request-services h5 span[translate^="nui.request.request"] {
 prm-service-ngrs div.form_item_pickup{
   display: none;
 }
+
+/*Hide How To Get It menu link and section*/
+button:has(span[translate="nui.getit.service_howtogetit"]){
+  display: none;
+  }
+  
+div.full-view-section:has(h4[translate="nui.getit.service_howtogetit"]){
+  display: none;
+}
