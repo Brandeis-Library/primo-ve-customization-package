@@ -18,8 +18,6 @@
   var nonhathiTrustMember = false;
 
 
-  
-
   /*----------below is the code for libchat-----------*/
   // Adds the chat button
   (function () {
@@ -28,30 +26,10 @@
     lc.async = 'true';
     lc.src =
       ('https:' == document.location.protocol ? 'https://' : 'http://') +
-      'answers.library.brandeis.edu/load_chat.php?hash=8695fcdfdfdf1ec2b50aabde6d1afd61';
+      'answers.library.brandeis.edu/load_chat.php?hash=4fc98d283d2ec973fb915db64f2db323';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(lc, s);
 
-    //for page load
-    window.addEventListener('load', event => {
-      let status = undefined;
-
-      fetch('https://answers.library.brandeis.edu/1.0/chat/widgets/status/9616')
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          status = data.online;
-
-          if (status === true) {
-            document.getElementById('lcs_slide_out_button-9616').innerText =
-              'Chat with a Librarian';
-          } else {
-            document.getElementById('lcs_slide_out_button-9616').innerText =
-              'Ask a Librarian';
-          }
-        });
-    });
   })();
 
   //Google Tag Manager
@@ -74,25 +52,6 @@
  gtag('config', 'G-SBKFHHD1QW');`;
    document.head.appendChild(googleAnalyticsCode);   
 
-  //for continued checking
-  setInterval(function () {
-    let status = undefined;
-    fetch('https://answers.library.brandeis.edu/1.0/chat/widgets/status/9616')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        status = data.online;
-
-        if (status === true) {
-          document.getElementById('lcs_slide_out_button-9616').innerText =
-            'Chat with a Librarian';
-        } else {
-          document.getElementById('lcs_slide_out_button-9616').innerText =
-            'Ask a Librarian';
-        }
-      });
-  }, 60000);
   /*---------------libchat code ends here---------------*/
 
   /*----------twitter starts here-----------*/
