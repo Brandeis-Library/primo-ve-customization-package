@@ -203,10 +203,10 @@
     controller: 'prmRequestAfterController',
   });
 
-  /*
+  
   app.component('prmServiceNgrsAfter', {
-    controller: 'prmServiceNgrsAfterController'
-  });*/
+    template: '<div style="background-color: #ffc107; width: 100%; padding: 6px; padding-bottom: 10px; border-radius: 5px; margin-bottom: 10px; border: 3px  solid black; margin-top: 1%;"><p><strong>Note:</strong> Interlibrary Loan and Scan on Demand requests can be submitted as usual during Winter Break. Article and chapter delivery may be delayed, and physical books cannot be collected until after break.</p></div>'
+  });
 
 	app.component('prmRapidoNoOfferMessageAfter', {
     controller: 'prmRapidoNoOfferMessageAfterController'
