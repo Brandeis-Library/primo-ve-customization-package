@@ -1217,8 +1217,27 @@ div.full-view-section:has(h4[translate="nui.getit.service_howtogetit"]){
   display: none;
 }
 
-#s-lch-widget-9621 {max-height: 700px;}
+#s-lch-widget-9621 {
+  max-height: 700px;
+
+}
 
 .s-lch-widget-float.open {
   top: revert !important;
+}
+
+
+#s-lch-widget-9621 {
+  max-height: 700px;
+  bottom: 100px;
+}
+
+.s-lch-widget-float.open {
+  top: revert !important;
+}
+
+@media (max-width: 960px) {
+  #s-lch-widget-9621 {
+      bottom: 200px;
+  }
 }
