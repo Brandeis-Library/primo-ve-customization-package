@@ -143,10 +143,10 @@
     
   //Library banner alert message!!
 
-  /*
+  
   app.component('prmBackToLibrarySearchButtonAfter', {
-    template: '<div style="background-color: #ffc107; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">There is currently an issue with interlibrary loan article / chapter access.  Please contact <a href="mailto:ill@brandeis.edu">ill@brandeis.edu</a> if you need immediate help accessing your requested article or chapter.</div>',
-  });*/
+    template: '<div style="background-color: #ffc107; width: 100%; text-align: center; padding: 10px; border-radius: 5px; margin-bottom: 15px;">There is currently an issue with Proquest Ebook Central ebooks on some browsers. The vendor is working to resolve this issue. In the meantime, please try clearing your browser cache and cookies or using a different browser to access these ebooks.</div>',
+  });
 
   
 
