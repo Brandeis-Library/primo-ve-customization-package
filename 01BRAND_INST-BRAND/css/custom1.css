@@ -1241,3 +1241,7 @@ div.full-view-section:has(h4[translate="nui.getit.service_howtogetit"]){
       bottom: 200px;
   }
 }
+
+li[translate="nui.journalsearch.category.option2"] {
+  display: none;
+}
