@@ -1245,3 +1245,9 @@ div.full-view-section:has(h4[translate="nui.getit.service_howtogetit"]){
 li[translate="nui.journalsearch.category.option2"] {
   display: none;
 }
+
+@media (max-width: 1190px) {
+  prm-logo img {
+      width: 220px;
+  }
+}

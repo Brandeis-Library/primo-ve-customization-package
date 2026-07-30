@@ -1531,5 +1531,56 @@ function enableNewspaperButton() {
   }
 }
 
+(function () {
+  var MOBILE_LOGO = 'https://misc.library.brandeis.edu/img/Brandeis_OneSearch_Vertical_Logo.png';
+  var DESKTOP_LOGO = 'https://search.library.brandeis.edu/discovery/custom/thumbnails/thumbnail_01BRAND_INST-BRAND.png';
+  var BREAKPOINT = 600; // Screen width in pixels for mobile threshold
+
+  function updateLogo() {
+    // Select the image inside the prm-logo directive (handles standard HTML or SVG)
+    var logo = document.querySelector('prm-logo img, prm-logo image');
+    if (!logo) return;
+
+    var isMobile = window.innerWidth <= BREAKPOINT;
+    var targetSrc = isMobile ? MOBILE_LOGO : DESKTOP_LOGO;
+
+    // AngularJS in Primo VE sometimes uses SVG <image> tags instead of standard HTML <img>
+    if (logo.tagName.toLowerCase() === 'image') {
+      if (logo.getAttribute('href') !== targetSrc) {
+        logo.setAttribute('href', targetSrc);
+        logo.setAttribute('xlink:href', targetSrc);
+      }
+    } else {
+      if (logo.src !== targetSrc) {
+        logo.src = targetSrc;
+      }
+    }
+
+    // Set width to 100px on mobile; reset to stylesheet default on desktop
+    if (isMobile) {
+      logo.style.width = '100px';
+    } else {
+      logo.style.width = ''; 
+    }
+  }
+
+  // 1. Listen for window resize events
+  window.addEventListener('resize', updateLogo);
+
+  // 2. Native DOM observer to catch when AngularJS finishes injecting <prm-logo>
+  var observer = new MutationObserver(updateLogo);
+  
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function () {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+
+  // Initial attempt
+  updateLogo();
+})();
+
 
 
